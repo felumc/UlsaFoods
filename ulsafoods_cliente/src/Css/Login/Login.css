@@ -1,0 +1,16 @@
+.Login{
+    left      : 50%;
+    top       : 50%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
+    width:50%;
+    box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.397);
+    border-radius: 10px;
+    border: 0.5px rgba(0, 0, 0, 0.5);
+    padding: 1em;
+}
+h2{
+    text-align: center;
+    padding: 1em;
+    margin-top: 10px;
+}
