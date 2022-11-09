@@ -5,7 +5,7 @@ import '../Css/Login/Login.css'
 function LoginPage() {
     return (
         <Container>
-            <h2>Bienvenido</h2>
+            <h2>Bienvenidos al login</h2>
             <Login />
         </Container>
     )
