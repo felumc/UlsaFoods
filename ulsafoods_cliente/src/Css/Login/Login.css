@@ -1,16 +1,126 @@
-.Login{
-    left      : 50%;
-    top       : 50%;
-    position  : absolute;
-    transform : translate(-50%, -50%);
-    width:50%;
+.Login {
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 50%;
     box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.397);
     border-radius: 10px;
     border: 0.5px rgba(0, 0, 0, 0.5);
     padding: 1em;
 }
-h2{
-    text-align: center;
-    padding: 1em;
+
+
+.CuadroLogin {
+    font-size: 20px;
+    font-family: "Montserrat"; 
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: #3F4E4F;
+    display: flex;
+}
+
+.Izquierda img {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    margin-top: 20px;
+    height: 460px;
+    width: 320px;
+    border-radius: 30px;
+    margin-left: 15%;
+}
+
+.Derecha {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    margin-right: 60px;
+    margin-top: 5%;
+    float: right;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.foto {
+    padding-inline: 50%;
+}
+
+.Derecha img {
+    width: 150px;
+    border-radius: 30px;
+}
+
+.input {
+    margin-top: 15px;
+    padding-inline-start: 20px;
+    padding-inline-end: 70px;
+    padding-block: 10px;
+    margin-bottom: 15px;
+    background-color: #DCD7C9;
+}
+
+.white {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.font {
+    font-family: "Montserrat";
+    font-size: 0.8em;
+    color: black;
+}
+
+.Entrar {
+    background: #A27B5C;
+    padding: 10px;
+    padding-inline: 40px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 3%;
+    cursor: pointer;
+    color: #DCD7C9;
+    font-size: 0.8em;
+}
+
+.button2 {
+    text-decoration: none;
+    background: #DCD7C9;
+    padding: 10px;
+    padding-inline: 40px;
+    border: none;
+    border-radius: 30px;
+    margin-top: 6%;
+    cursor: pointer;
+    color: #7c7c7c;
+    font-size: 0.8em;
+    text-decoration: none;
+
+}
+
+a {
+
+    text-decoration: none;
+}
+
+.RecoverPass :hover {
+    color: yellow;
+}
+
+.RecoverPass {
+    font-size: 12px;
     margin-top: 10px;
+    color: #DCD7C9;
+}
+
+input {
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 30px;
 }
