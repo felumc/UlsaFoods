@@ -7,8 +7,8 @@ function Inicio() {
     return (
         <>
             <NavBar />
-            <h2>Página de inicio</h2>
             <Container>
+            <h2>Página de inicio</h2>
             <ProdNav/>
             <br/>
             <CardProd/>
