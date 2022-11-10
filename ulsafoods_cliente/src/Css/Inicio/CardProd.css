@@ -158,9 +158,8 @@ a {
 
 .Agregar{
     height: 50px;
-    width: 385px;
+    width: 100%;
     border-radius: 100px;
-    
     background-color: #ff8000;
     color:white;
     border:none;
@@ -168,4 +167,8 @@ a {
 
 .Agregar:hover{
     background-color:#F47A00;;
+}
+
+.Agregadiv{
+    width: 100%;
 }

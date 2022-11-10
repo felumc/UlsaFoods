@@ -18,14 +18,14 @@ function CardProd() {
                         </div>
                         <div className="food-card_bottom-section">
                             <div className="space-between">
-                                <div>
+                                <div className="Agregadiv">
                                     <button className="Agregar">Agregar a carrito</button>
                                 </div>
                             </div>
                             <hr />
                             <div className="space-between">
                                 <div className="food-card_price">
-                                    <span>5.99$</span>
+                                    <span>Precio</span>
                                 </div>
                                 <div className="food-card_order-count">
                                     <div className="input-group mb-3">
