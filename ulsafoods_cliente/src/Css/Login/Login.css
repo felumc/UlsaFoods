@@ -8,8 +8,12 @@
     border-radius: 10px;
     border: 0.5px rgba(0, 0, 0, 0.5);
     padding: 1em;
+    
 }
+body{
+    background-color: #DCD7C9;
 
+}
 
 .CuadroLogin {
     font-size: 20px;
@@ -33,7 +37,7 @@
     height: 460px;
     width: 320px;
     border-radius: 30px;
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 .Derecha {
