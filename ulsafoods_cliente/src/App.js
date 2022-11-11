@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 import Inicio from './Paginas/Inicio';
 import LoginPage from './Paginas/LoginPage';
-
-// Rutas Dashboard
+import RegisterPage from './Paginas/RegisterPage';
+//Rutas Dashboard
 import Productos from '../src/Paginas/Dashboard/Productos';
 import Ventas from '../src/Paginas/Dashboard/Ventas';
 import Reportes from '../src/Componentes/Dashboard/Reportes';
@@ -16,6 +16,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/Register" element={<RegisterPage />} />
         <Route path="/Inicio" element={<Inicio />} />
         <Route path="/Dashboard/ventas" element={<Ventas />} />
         <Route path="/Dashboard/productos" element={<Productos />} />

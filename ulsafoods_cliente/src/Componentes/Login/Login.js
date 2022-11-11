@@ -1,26 +1,32 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import logo from '../images/logo2.png';
+import burger from '../images/burger.jpg';
 
 
 function Login() {
+    const inicio = () => {
+        window.location.href = '/Inicio';
+    };
+    const register = () => {
+        window.location.href = '/Register';
+    };
     return (
-        <Form className="Login">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
+        <div className="CuadroLogin">
+            <div className="Izquierda">
+                <a href="/#"><img src={burger} alt="Logo" /></a>
+            </div>
+            <div className="Derecha">
+                <a href="/#"><img src={logo} alt="Logo" /></a>
+                <input type="text" id="correo" className="input font" placeholder="Correo Institucional" required/>
+                <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required />
+                <button className="Entrar" type="submit" onClick={inicio}>
+                    Login
+                </button>
+                <button type="submit" className="button2" onClick={register}>
+                    Sign up
+                </button>
+            </div>
+        </div>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Button href="/Inicio" variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
     )
 }
 
