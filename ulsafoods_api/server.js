@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // route raiz
 app.get("/", (req, res) => {
-    res.json({ message: "Bienvenido a la aplicacion nodejs, express, sequelize, postgresql." });
+    res.json({ message: "Bienvenido al backend de UlsaFoods maldito hacker hdp." });
 });
 
 const db = require("./models");
@@ -39,6 +39,7 @@ db.sequelize.sync({ force: false }).then(() => {
 
 //require("./routes/usuario.routes")(app);
 require("./routes/producto.routes")(app);
+require("./routes/cliente.routes")(app);
 
 // asignar port para escuchar requests
 const PORT = process.env.PORT || 9595;
