@@ -42,7 +42,7 @@ function Register() {
                 <input type="text" id="correo" className="input font" placeholder="Correo" required/>
                 <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required />
                 <button className="Entrar" type="submit" onClick={login}>
-                    Sign Up
+                    Registrarse
                 </button>
                 <button type="submit" className="button2" onClick={login}>
                     Login
