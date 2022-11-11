@@ -179,7 +179,7 @@ const InsertarEmpleado = () => {
                         </tr>
                     </thead>
                     <tbody>{
-                        empleado.map(item => (
+                        empleads.map(item => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.nombre}</td>
