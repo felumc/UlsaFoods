@@ -17,8 +17,8 @@ module.exports = app => {
     // Eliminar un producto por id
     router.delete("/producto/:id", producto.delete); //http://localhost:9595/administrador/producto/[id]
 
-    // Eliminar todos los comnetarios de la base de datos
-    router.delete("/comentariosALL", producto.deleteAll); //http://localhost:9595/administrador/comentariosALL/
+    // Eliminar todos los productos de la base de datos
+    router.delete("/productosALL", producto.deleteAll); //http://localhost:9595/administrador/productosALL/
 
     app.use('/administrador', router);
 };

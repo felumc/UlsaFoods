@@ -1,21 +1,23 @@
 module.exports = (sequelize, Sequelize) => {
-    const producto = sequelize.define("producto", {
+    const Empleado = sequelize.define("empleado", {
         nombre: {
             type: Sequelize.STRING
-        },
-        stock: {
-            type: Sequelize.STRING
-        },
-        precio: {
-            type: Sequelize.FLOAT
         },
         cafeteria: {
             type: Sequelize.STRING
         },
+        area: {
+            type: Sequelize.STRING
+        },
+        puesto: {
+            type: Sequelize.STRING
+        },
+        salario: {
+            type: Sequelize.FLOAT
+        },
         url_imagen: {
             type: Sequelize.STRING
-        }
+        },
     });
-
-    return producto;
+    return Empleado;
 };

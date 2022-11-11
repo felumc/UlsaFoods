@@ -1,9 +1,9 @@
 const db = require("../models");
-const Producto = db.producto;
+const Empleado = db.empleado;
 const Op = db.Sequelize.Op;
 var path = require('path');
 
-// Crear y Guardar un nuevo Producto
+// Crear y Guardar un nuevo empleado
 exports.create = (req, res) => {
     // Validar request
     if (!req.body.nombre) {
@@ -13,121 +13,122 @@ exports.create = (req, res) => {
         return;
     }
 
-    // Crear un Producto
-    const producto = {
+    // Crear un empleado
+    const empleado = {
         nombre: req.body.nombre,
-        stock: req.body.stock,
-        precio: req.body.precio,
-        cafeteria:req.body.cafeteria,
+        cafeteria: req.body.stock,
+        area: req.body.area,
+        puesto: req.body.puesto,
+        salario: req.body.salario,
         url_imagen: req.body.url_imagen
     };
 
-    // Guardar Producto en la base de datos
-    Producto.create(producto)
-        .then(producto => {
-            res.status(200).send(producto);
+    // Guardar el empleado en la base de datos
+    Empleado.create(empleado)
+        .then(empleado => {
+            res.status(200).send(empleado);
         })
         .catch(err => {
             // res.status(500).send({
             //     mensaje:
-            //         err.message || "Ocurrio un error al crear Producto."
+            //         err.message || "Ocurrio un error al crear el empleado."
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
 };
 
-// Recuperar todos los Productos de la base de datos
+// Recuperar todos los empleados de la base de datos
 exports.findAll = (req, res) => {
-    Producto.findAll()
-        .then(producto => {
-            res.status(200).send(producto);
+    Empleado.findAll()
+        .then(empleado => {
+            res.status(200).send(empleado);
         })
         .catch(err => {
             res.status(500).send({
                 mensaje:
-                    err.message || "Ocurrio un error al recuperar todos los Productos."
+                    err.message || "Ocurrio un error al recuperar todos los empleados."
             });
         });
 };
 
-// Encontrar Producto por id
+// Encontrar empleado por id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    Producto.findByPk(id)
-        .then(producto => {
-            res.status(200).send(producto);
+    Empleado.findByPk(id)
+        .then(empleado => {
+            res.status(200).send(empleado);
         })
         .catch(err => {
             res.status(500).send({
-                mensaje: "Error al recuperar Producto por id=" + id
+                mensaje: "Error al recuperar el empleado por id=" + id
             });
         });
 };
-// Actualizar Producto por id
+// Actualizar empleado por id
 exports.update = (req, res) => {
     const id = req.params.id;
-    Producto.update(req.body, {
+    Empleado.update(req.body, {
         where: { id: id }
     })
         .then(num => {
             if (num == 1) {
                 res.status(200).send({
-                    mensaje: "Producto se actualizo con exito."
+                    mensaje: "El empleado se actualizo con exito."
                 });
             } else {
                 // res.send({
-                //     mensaje: `Error al actualizar Producto con id=${id}!`
+                //     mensaje: `Error al actualizar el empleado con id=${id}!`
                 // });
                 res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
             }
         })
         .catch(err => {
             // res.status(500).send({
-            //     mensaje: "Error al actualizar Producto con id=" + id
+            //     mensaje: "Error al actualizar el empleado con id=" + id
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
 };
 
-// Eliminar un Producto por id
+// Eliminar un empleado por id
 exports.delete = (req, res) => {
     const id = req.params.id;
-    Producto.destroy({
+    Empleado.destroy({
         where: { id: id }
     })
         .then(num => {
             if (num == 1) {
                 res.status(200).send({
-                    mensaje: "Producto eliminado con exito!"
+                    mensaje: "Empleado eliminado con exito!"
                 });
             } else {
                 // res.send({
-                //     mensaje: `Error al eliminar Producto con id=${id}!`
+                //     mensaje: `Error al eliminar empleado con id=${id}!`
                 // });
                 res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
             }
         })
         .catch(err => {
             // res.status(500).send({
-            //     mensaje: "Error al eliminar Producto con id=" + id
+            //     mensaje: "Error al eliminar empleado con id=" + id
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
 };
 
-// Eliminar todos los Producto de la base de datos
+// Eliminar todos los empleados de la base de datos
 exports.deleteAll = (req, res) => {
-    Producto.destroy({
+    Empleado.destroy({
         where: {},
         truncate: false
     })
         .then(nums => {
-            res.status(200).send({ mensaje: `${nums} Productos fueron eliminados con exito!` });
+            res.status(200).send({ mensaje: `${nums} Los empleados fueron eliminados con exito!` });
         })
         .catch(err => {
             // res.status(500).send({
             //     mensaje:
-            //         err.message || "Error al eliminar Productos."
+            //         err.message || "Error al eliminar los empleados."
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
