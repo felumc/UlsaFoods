@@ -1,134 +1,132 @@
 const db = require("../models");
-const Comentario = db.comentario;
+const Producto = db.producto;
 const Op = db.Sequelize.Op;
 var path = require('path');
 
-// Crear y Guardar un nuevo Comentario
+// Crear y Guardar un nuevo Producto
 exports.create = (req, res) => {
     // Validar request
     if (!req.body.nombre) {
         res.status(400).send({
-            mensaje: "El contenido no puede ser vacio, nombre=" + req.body.nombre + " descripcion=" + req.body.descripcion
+            mensaje: "El contenido no puede ser vacio, nombre="
         });
         return;
     }
 
-    // Crear un Comentario
-    const comentario = {
+    // Crear un Producto
+    const producto = {
         nombre: req.body.nombre,
-        pista: req.body.pista,
-        comentario: req.body.comentario,
-        edad:req.body.edad,
-        pais:req.body.pais,
+        stock: req.body.stock,
+        precio: req.body.precio,
         url_imagen: req.body.url_imagen
     };
 
-    // Guardar Comentario en la base de datos
-    Comentario.create(comentario)
-        .then(comentario => {
-            res.status(200).send(comentario);
+    // Guardar Producto en la base de datos
+    Producto.create(producto)
+        .then(producto => {
+            res.status(200).send(producto);
         })
         .catch(err => {
             // res.status(500).send({
             //     mensaje:
-            //         err.message || "Ocurrio un error al crear Comentario."
+            //         err.message || "Ocurrio un error al crear Producto."
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
 };
 
-// Recuperar todos los Comentarios de la base de datos
+// Recuperar todos los Productos de la base de datos
 exports.findAll = (req, res) => {
-    Comentario.findAll()
-        .then(comentario => {
-            res.status(200).send(comentario);
+    Producto.findAll()
+        .then(producto => {
+            res.status(200).send(producto);
         })
         .catch(err => {
             res.status(500).send({
                 mensaje:
-                    err.message || "Ocurrio un error al recuperar todos los Comentarios."
+                    err.message || "Ocurrio un error al recuperar todos los Productos."
             });
         });
 };
 
-// Encontrar Comentario por id
+// Encontrar Producto por id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-    Comentario.findByPk(id)
-        .then(comentario => {
-            res.status(200).send(comentario);
+    Producto.findByPk(id)
+        .then(producto => {
+            res.status(200).send(producto);
         })
         .catch(err => {
             res.status(500).send({
-                mensaje: "Error al recuperar Comentario por id=" + id
+                mensaje: "Error al recuperar Producto por id=" + id
             });
         });
 };
-// Actualizar Comentario por id
+// Actualizar Producto por id
 exports.update = (req, res) => {
     const id = req.params.id;
-    Comentario.update(req.body, {
+    Producto.update(req.body, {
         where: { id: id }
     })
         .then(num => {
             if (num == 1) {
                 res.status(200).send({
-                    mensaje: "Comentario se actualizo con exito."
+                    mensaje: "Producto se actualizo con exito."
                 });
             } else {
                 // res.send({
-                //     mensaje: `Error al actualizar Comentario con id=${id}!`
+                //     mensaje: `Error al actualizar Producto con id=${id}!`
                 // });
                 res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
             }
         })
         .catch(err => {
             // res.status(500).send({
-            //     mensaje: "Error al actualizar Comentario con id=" + id
+            //     mensaje: "Error al actualizar Producto con id=" + id
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
 };
 
-// Eliminar un Comentario por id
+// Eliminar un Producto por id
 exports.delete = (req, res) => {
     const id = req.params.id;
-    Comentario.destroy({
+    Producto.destroy({
         where: { id: id }
     })
         .then(num => {
             if (num == 1) {
                 res.status(200).send({
-                    mensaje: "Comentario eliminado con exito!"
+                    mensaje: "Producto eliminado con exito!"
                 });
             } else {
                 // res.send({
-                //     mensaje: `Error al eliminar Comentario con id=${id}!`
+                //     mensaje: `Error al eliminar Producto con id=${id}!`
                 // });
                 res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
             }
         })
         .catch(err => {
             // res.status(500).send({
-            //     mensaje: "Error al eliminar Comentario con id=" + id
+            //     mensaje: "Error al eliminar Producto con id=" + id
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
 };
 
-// Eliminar todos los Comentario de la base de datos
+// Eliminar todos los Producto de la base de datos
 exports.deleteAll = (req, res) => {
-    Comentario.destroy({
+    Producto.destroy({
         where: {},
         truncate: false
     })
         .then(nums => {
-            res.status(200).send({ mensaje: `${nums} Comentarios fueron eliminados con exito!` });
+            res.status(200).send({ mensaje: `${nums} Productos fueron eliminados con exito!` });
         })
         .catch(err => {
             // res.status(500).send({
             //     mensaje:
-            //         err.message || "Error al eliminar Comentarios."
+            //         err.message || "Error al eliminar Productos."
             // });
             res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
         });
