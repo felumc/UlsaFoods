@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Button, Container } from 'reactstrap';
+import { Table, Container } from 'reactstrap';
+import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
@@ -89,6 +90,29 @@ const InsertarProductos = () => {
         setProducto(productos);
     }
 
+    //Barra de busqueda
+
+    const busqueda = () => {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+         
+    }
+
     return (
         <div>
             <Modal
@@ -134,7 +158,10 @@ const InsertarProductos = () => {
             <Container>
                 <Button onClick={() => setLgShow(true)} color='primary' className='float-right'>Insertar nuevo producto</Button>
                 <br /><br />
-                <Table striped bordered hover >
+
+                <input type="text" id="myInput" onKeyUp={busqueda} placeholder="Search for names.." title="Type in a name" />
+
+                <Table striped bordered hover id="myTable">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -142,6 +169,7 @@ const InsertarProductos = () => {
                             <th>Stock</th>
                             <th>Precio</th>
                             <th>Cafeteria</th>
+                            <th >Acciones</th>
                         </tr>
                     </thead>
                     <tbody>{
@@ -152,6 +180,11 @@ const InsertarProductos = () => {
                                 <td>{item.stock}</td>
                                 <td>{item.precio}</td>
                                 <td>{item.cafeteria}</td>
+                                <td>
+                                    <Button variant="primary">Editar</Button>{'     '}
+                                    <Button variant="danger">Eliminar</Button>{'    '}
+                                    <Button variant="warning">Ver imagen</Button>
+                                </td>
                             </tr>))}
                     </tbody>
                 </Table>
