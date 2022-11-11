@@ -17,12 +17,12 @@ const Usuario = () => {
                             menuVariant="dark"
                         >
                             <NavDropdown.Item href="">Mi perfil</NavDropdown.Item>
-                            <NavDropdown.Item href="">
+                            <NavDropdown.Item href="/Dashboard/ConfiguracionPerfil">
                                 Configuraciones
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="">
-                                <FaIcons.FaPersonBooth className='me-2' />Cerrar Sesi&oacute;n
+                            <NavDropdown.Item href="/">
+                                <FaIcons.FaPersonBooth className='me-2'/>Cerrar Sesi&oacute;n
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
