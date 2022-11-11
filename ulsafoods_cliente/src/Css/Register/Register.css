@@ -3,32 +3,33 @@ body{
 
 }
 
-.CuadroLogin {
+.CuadroLoginR {
     font-size: 20px;
     font-family: "Montserrat"; 
     left: 50%;
-    top: 50%;
+    top: 70%;
     position: absolute;
     transform: translate(-50%, -50%);
     width: 750px;
-    height: 500px;
+    height: 800px;
     border-radius: 30px;
     background-color: #3F4E4F;
     display: flex;
 }
 
-.Izquierda img {
+.IzquierdaR img {
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    margin-top: 20px;
-    height: 460px;
+    margin-top: 40px;
+    object-fit: cover;
+    height: 720px;
     width: 320px;
     border-radius: 30px;
     margin-left: 10%;
 }
 
-.Derecha {
+.DerechaR {
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
@@ -44,8 +45,8 @@ body{
     padding-inline: 50%;
 }
 
-.Derecha img {
-    width: 150px;
+.DerechaR img {
+    width: 100px;
     border-radius: 30px;
 }
 
