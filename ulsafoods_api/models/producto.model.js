@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
         stock: {
             type: Sequelize.STRING
         },
-        comentario: {
+        precio: {
             type: Sequelize.FLOAT
         },
         url_imagen: {
