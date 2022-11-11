@@ -13,7 +13,7 @@ function Register() {
             </div>
             <div className="DerechaR">
                 <a href="/#"><img src={logo} alt="Logo" /></a>
-                <input type="text" id="id" className="input font" placeholder="ID" required/>
+                <input type="text" id="id" className="input font" placeholder="Matricula" required/>
                 <input type="text" id="nombre" className="input font" placeholder="Nombre" required/>
                 <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno" required/>
                 <input type="text" id="apemat" className="input font" placeholder="Apellido Materno" required/>
@@ -39,7 +39,7 @@ function Register() {
                     <option value="Eduacion">Eduacion</option>
                     <option value="Comunicacion">Comunicacion</option>
                 </select>
-                <input type="text" id="correo" className="input font" placeholder="Correo" required/>
+                <input type="text" id="correo" className="input font" placeholder="Correo Institucional" required/>
                 <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required />
                 <button className="Entrar" type="submit" onClick={login}>
                     Registrarse

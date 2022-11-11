@@ -16,7 +16,7 @@ function Login() {
             </div>
             <div className="Derecha">
                 <a href="/#"><img src={logo} alt="Logo" /></a>
-                <input type="text" id="correo" className="input font" placeholder="Correo" required/>
+                <input type="text" id="correo" className="input font" placeholder="Correo Institucional" required/>
                 <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required />
                 <button className="Entrar" type="submit" onClick={inicio}>
                     Login
