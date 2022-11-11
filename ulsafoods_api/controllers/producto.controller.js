@@ -18,6 +18,7 @@ exports.create = (req, res) => {
         nombre: req.body.nombre,
         stock: req.body.stock,
         precio: req.body.precio,
+        cafeteria:req.body.cafeteria,
         url_imagen: req.body.url_imagen
     };
 

@@ -9,6 +9,9 @@ module.exports = (sequelize, Sequelize) => {
         precio: {
             type: Sequelize.FLOAT
         },
+        cafeteria: {
+            type: Sequelize.STRING
+        },
         url_imagen: {
             type: Sequelize.STRING
         }
