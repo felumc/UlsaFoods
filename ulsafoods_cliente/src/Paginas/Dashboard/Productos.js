@@ -4,7 +4,9 @@ import SlideBar from '../../Componentes/Dashboard/SlideBar';
 import InsertarProductos from '../../Componentes/Dashboard/InsertarProductos';
 import '../../Css/Dashboard/dashboard.css'
 
+
 const Productos = () => {
+    
     return (
         <div>
             <Navbar />
@@ -14,6 +16,7 @@ const Productos = () => {
             <div className='content'>
                 <InsertarProductos />
             </div>
+            
         </div>
     );
 };
