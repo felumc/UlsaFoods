@@ -52,7 +52,7 @@ const InsertarProductos = () => {
                     nombre: nombre,
                     stock: stock,
                     precio: precio,
-                    cafeteria:cafeteria,
+                    cafeteria: cafeteria,
                     url_imagen: url,
                     createdAt: '',
                     updatedAt: '',
@@ -75,6 +75,19 @@ const InsertarProductos = () => {
             console.log(err);
         }
     };
+
+    //Generar tabla
+    const [producto, setProducto] = React.useState([])
+
+    React.useEffect(() => {
+        obtenerDatos();
+    }, [])
+
+    const obtenerDatos = async () => {
+        const data = await fetch('http://localhost:9595/administrador/productos/');
+        const productos = await data.json();
+        setProducto(productos);
+    }
 
     return (
         <div>
@@ -121,30 +134,25 @@ const InsertarProductos = () => {
             <Container>
                 <Button onClick={() => setLgShow(true)} color='primary' className='float-right'>Insertar nuevo producto</Button>
                 <br /><br />
-                <Table>
+                <Table striped bordered hover >
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Id</th>
-                            <th>Producto</th>
-                            <th>Cafeter&iacute;a</th>
+                            <th>Nombre</th>
+                            <th>Stock</th>
                             <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Eliminar</th>
+                            <th>Cafeteria</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {/* {this.state.data.map((elemento)=>(
-                            <tr>
-                                <td><input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="elegir" aria-label="..." /></td>
-                                <td>{elemento.id}</td>
-                                <td>{elemento.nombre}</td>
-                                <td>{elemento.cafeteria}</td>
-                                <td>{elemento.precio}</td>
-                                <td>{elemento.cantidad}</td>
-                                <td><Button color="danger">Eliminar</Button></td>
-                            </tr>
-                        ))} */}
+                    <tbody>{
+                        producto.map(item => (
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td>{item.nombre}</td>
+                                <td>{item.stock}</td>
+                                <td>{item.precio}</td>
+                                <td>{item.cafeteria}</td>
+                            </tr>))}
                     </tbody>
                 </Table>
             </Container>
