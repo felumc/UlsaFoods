@@ -1,0 +1,11 @@
+.flex{
+    display:flex;
+}
+.content{
+    padding-left: 14rem;
+    padding-top: 52px;
+}
+.sldbar{
+    float: left;
+    margin: 0px;
+}
