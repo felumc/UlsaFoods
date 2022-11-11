@@ -40,6 +40,12 @@ body{
     align-items: center;
     flex-direction: column;
 }
+.FormR{
+    float: right;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 .foto {
     padding-inline: 50%;
