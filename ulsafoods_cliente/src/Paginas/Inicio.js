@@ -8,7 +8,6 @@ function Inicio() {
         <>
             <NavBar />
             <Container>
-            <h2>Página de inicio</h2>
             <ProdNav/>
             <br/>
             <CardProd/>

@@ -11,7 +11,7 @@ function NavBar() {
 
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar collapseOnSelect expand="lg" variant="dark" style={{'backgroundColor': '#3F4E4F'}}>
                 <Container>
                     <Navbar.Brand >ULSA FOODS</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
