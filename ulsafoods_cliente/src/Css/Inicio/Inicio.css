@@ -18,3 +18,39 @@ h2{
     text-align: center;
     padding: 1em;
 } 
+
+/*Carrito*/
+.restar{
+    background-color:#ff8000;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    float:right
+}
+.agregar{
+    background-color:#ff8000;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    float:right
+}
+.eliminar{
+    background-color: red;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    float:right
+}
+

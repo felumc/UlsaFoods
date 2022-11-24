@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
         stock: {
             type: Sequelize.STRING
         },
-        precio: {
+        price: {
             type: Sequelize.FLOAT
         },
         cafeteria: {
