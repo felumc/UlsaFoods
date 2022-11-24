@@ -94,29 +94,10 @@ function Inicio() {
                 </button>
             </NavBar >
             <Container>
-                <h2>Página de inicio</h2>
-                <CartProvider>
-                    <Page />
-                    {/* <Cart /> */}
-                    <Modal
-                        size="lg"
-                        show={lgShow}
-                        onHide={() => setLgShow(false)}
-                        aria-labelledby="example-modal-sizes-title-lg"
-                    >
-                        <Modal.Header closeButton>
-                            <Modal.Title id="example-modal-sizes-title-lg">
-                                <h1>Pago</h1>
-                            </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-
-
-                            <Cart />
-
-                        </Modal.Body>
-                    </Modal>
-                </CartProvider>
+            <h2>Página de inicio</h2>
+            <ProdNav/>
+            <br/>
+            <CardProd/>
             </Container>
 
         </>
