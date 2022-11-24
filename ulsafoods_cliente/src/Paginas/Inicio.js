@@ -1,19 +1,26 @@
 import React from 'react';
-// Componente de la barra de navegación
+
+// Componente barra de navegación
 import { NavBar } from '../Componentes/Inicio/NavBar';
-// Componente de trajetas de productos
+
+// Componente de tarjetas de productos
 import { CardProd } from '../Componentes/Inicio/CardProd';
-// Contenedor responsive
+
+// Componente de contenedor responsive
 import { Container } from '../Componentes/General/Container';
-// Libreria para importar iconos
+
+// Componente de iconos bootstrap
 import { IconContext } from "react-icons";
-// Iconos para carrito
+
+// Componente iconos de carrito
 import { BsFillCartFill } from "react-icons/bs";
-// Modal de bootstrap
+
+// Componente de modal de bootstrap
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import '../Css/Inicio/Inicio.css'
-// Importamos libreria de carrito
+
+// Componente de carrito
 import { CartProvider, useCart } from "react-use-cart";
 
 function Page() {
@@ -87,7 +94,7 @@ function Inicio() {
 
     return (
         <>
-           
+
             <NavBar >
                 <button onClick={() => setLgShow(true)} className="carrito">
                     <IconContext.Provider
@@ -100,7 +107,7 @@ function Inicio() {
                 <h2>Página de inicio</h2>
                 <br />
                 <CartProvider>
-                <Page />
+                    <Page />
                 </CartProvider>
             </Container>
             <Modal
