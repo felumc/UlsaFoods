@@ -1,15 +1,21 @@
-import { NavBar } from '../Componentes/Inicio/NavBar';
-import { ProdNav } from '../Componentes/Inicio/ProdNav';
-import { CardProd } from '../Componentes/Inicio/CardProd';
-import { Container } from '../Componentes/General/Container';
 import React from 'react';
+// Componente de la barra de navegación
+import { NavBar } from '../Componentes/Inicio/NavBar';
+// Componente de trajetas de productos
+import { CardProd } from '../Componentes/Inicio/CardProd';
+// Contenedor responsive
+import { Container } from '../Componentes/General/Container';
+// Libreria para importar iconos
 import { IconContext } from "react-icons";
+// Iconos para carrito
 import { BsFillCartFill } from "react-icons/bs";
+// Modal de bootstrap
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
-
 import '../Css/Inicio/Inicio.css'
+// Importamos libreria de carrito
 import { CartProvider, useCart } from "react-use-cart";
+
 function Page() {
     const { addItem } = useCart();
 
@@ -81,24 +87,39 @@ function Inicio() {
 
     return (
         <>
-
-
-            {/* <ProdNav/> */}
+           
             <NavBar >
                 <button onClick={() => setLgShow(true)} className="carrito">
                     <IconContext.Provider
                         value={{ color: 'white', size: '20px' }}>
                         <BsFillCartFill />
                     </IconContext.Provider>
-                    {/* <span className="Contador"></span>  */}
                 </button>
             </NavBar >
             <Container>
-            <h2>Página de inicio</h2>
-            <ProdNav/>
-            <br/>
-            <CardProd/>
+                <h2>Página de inicio</h2>
+                <br />
+                <CartProvider>
+                <Page />
+                </CartProvider>
             </Container>
+            <Modal
+                size="lg"
+                show={lgShow}
+                onHide={() => setLgShow(false)}
+                aria-labelledby="example-modal-sizes-title-lg"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-lg">
+                        Carrito de compras
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <CartProvider>
+                        <Cart />
+                    </CartProvider>
+                </Modal.Body>
+            </Modal>
 
         </>
     )
