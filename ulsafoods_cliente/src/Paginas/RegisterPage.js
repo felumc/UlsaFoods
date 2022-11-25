@@ -3,6 +3,7 @@ import { Register } from '../Componentes/Register/Register';
 import '../Css/Register/Register.css'
 
 function RegisterPage() {
+    document.title = 'Registro';
     return (
         <>
             <Container>

@@ -3,6 +3,7 @@ import { Container } from '../Componentes/General/Container';
 import '../Css/Login/Login.css'
 
 function LoginPage() {
+    document.title = 'Login';
     return (
         <>
             <Container>
