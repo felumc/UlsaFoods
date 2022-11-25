@@ -57,18 +57,18 @@ function Page() {
 
         // Busco el elemnto por id
         const root = ReactDOM.createRoot(document.getElementById('row'));
-        
-     
+
+
 
         // Renderizo el componente
         const element = (
             <CartProvider>
                 {producto.map((p) => (
-                     p.categoria ===categoria
-                    ?(<CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
-                        <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
-                    </CardProd>)
-                   : null
+                    p.categoria === categoria
+                        ? (<CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                            <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
+                        </CardProd>)
+                        : null
 
                 ))}
             </CartProvider>
@@ -90,35 +90,35 @@ function Page() {
                     </IconContext.Provider>
                 </button>
 
-                <button value="Refresco" onClick={filtrar}  className='S'>
+                <button value="Refresco" onClick={filtrar} className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiSodaCan />
                     </IconContext.Provider>
                 </button>
 
-                <button value="Sabritas" onClick={filtrar}  className='S'>
+                <button value="Sabritas" onClick={filtrar} className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiChipsBag />
                     </IconContext.Provider>
                 </button>
 
-                <button value="Hamburguesa" onClick={filtrar}  className='S'>
+                <button value="Hamburguesa" onClick={filtrar} className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiHamburger />
                     </IconContext.Provider>
                 </button>
 
-                <button value="Pastel" onClick={filtrar}  className='S'>
+                <button value="Pastel" onClick={filtrar} className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiCakeSlice />
                     </IconContext.Provider>
                 </button>
 
-                <button value="Baguette" onClick={filtrar}  className='S'>
+                <button value="Baguette" onClick={filtrar} className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiSandwich />
@@ -147,9 +147,21 @@ function Cart() {
         items,
         updateItemQuantity,
         removeItem,
+        
     } = useCart();
 
     if (isEmpty) return <p>Tu carrito esta vacío</p>;
+
+   
+     const Total = () =>{
+        var contador = 0;
+        alert("HOLI")
+        {items.map((item) => (    
+            contador=contador+1
+
+         ))}
+        alert(contador)
+     }
 
     return (
         <>
@@ -173,6 +185,8 @@ function Cart() {
                     </li>
                 ))}
             </ul>
+            <button onClick={Total} style={{ width: '100%' }} className='Agregar'>Pagar</button>
+
         </>
     );
 }
