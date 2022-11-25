@@ -5,7 +5,7 @@ body{
 
 .CuadroLoginR {
     font-size: 20px;
-    font-family: "Montserrat"; 
+    /*font-family: "Montserrat"; */
     left: 50%;
     top: 70%;
     position: absolute;
@@ -75,7 +75,7 @@ input:focus {
 }
 
 .font {
-    font-family: "Montserrat";
+    /*font-family: "Montserrat";*/
     font-size: 0.8em;
     color: black;
 }
@@ -126,4 +126,9 @@ input {
     background-color: #f5f5f5;
     border: none;
     border-radius: 30px;
+}
+
+#carrera{
+    color: #3F4E4F;
+    width: 271px;
 }

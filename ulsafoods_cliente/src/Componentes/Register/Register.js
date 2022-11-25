@@ -89,7 +89,7 @@ function Register() {
                     <button className="Entrar" type="submit">
                         Registrarse
                     </button>
-                    <button type="submit" className="button2" onClick={login}>
+                    <button  className="button2" onClick={login}>
                         Login
                     </button>
                 </form>

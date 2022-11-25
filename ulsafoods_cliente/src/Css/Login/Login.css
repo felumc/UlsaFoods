@@ -68,6 +68,14 @@ input:focus {
     outline:none!important;
 }
 
+select:focus {
+    outline:none!important;
+}
+
+option{
+    color: #3F4E4F;
+}
+
 .white {
     text-decoration: none;
     color: rgb(255, 255, 255);

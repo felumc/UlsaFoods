@@ -4,9 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    const inicio = () => {
-        window.location.href = '/Inicio';
-    };
+   
     const register = () => {
         window.location.href = '/Register';
     };
@@ -54,8 +52,8 @@ function Login() {
                     <button className="Entrar" type="submit">
                         Login
                     </button>
-                    <button type="submit" className="button2" onClick={register}>
-                        Sign up
+                    <button  className="button2" onClick={register}>
+                        Registrarse
                     </button>
                 </form>
             </div>
