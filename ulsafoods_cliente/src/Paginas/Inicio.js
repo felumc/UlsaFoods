@@ -61,11 +61,11 @@ function Page() {
         const element = (
             <CartProvider>
                 {producto.map((p) => (
-                    
-                        <CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
-                            <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
-                        </CardProd>
-                    
+
+                    <CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                        <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
+                    </CardProd>
+
                 ))}
             </CartProvider>
 
