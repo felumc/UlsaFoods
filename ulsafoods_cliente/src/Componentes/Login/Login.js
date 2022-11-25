@@ -48,8 +48,8 @@ function Login() {
             <div className="Derecha">
                 <form method="post" onSubmit={handleSubmit} className="Form" >
                     <a href="/#"><img src={logo} alt="Logo" /></a>
-                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional" required onChange={(e) => setCorreo(e.target.value)} />
-                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required onChange={(e) => setContrasenia(e.target.value)} />
+                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional"  onChange={(e) => setCorreo(e.target.value)} />
+                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña"  onChange={(e) => setContrasenia(e.target.value)} />
                     <button className="Entrar" type="submit">
                         Login
                     </button>
