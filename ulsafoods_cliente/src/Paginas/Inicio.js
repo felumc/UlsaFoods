@@ -52,19 +52,23 @@ function Page() {
     // Listar productos especificos
     const filtrar = event => {
 
-        console.log(event.currentTarget.id);
+        console.log(event.currentTarget.value);
 
 
         // Busco el elemnto por id
         const root = ReactDOM.createRoot(document.getElementById('row'));
+        
+     
+
         // Renderizo el componente
         const element = (
             <CartProvider>
                 {producto.map((p) => (
-
-                    <CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                     p.id ===1
+                    ?(<CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
                         <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
-                    </CardProd>
+                    </CardProd>)
+                   : null
 
                 ))}
             </CartProvider>
@@ -79,42 +83,42 @@ function Page() {
         <>
             <div className='Botonera'>
 
-                <button id="Cafe" onClick={filtrar} className='S' >
+                <button value="Cafe" onClick={filtrar} className='S' >
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < BiCoffeeTogo />
                     </IconContext.Provider>
                 </button>
 
-                <button className='S'>
+                <button value="Refresco" onClick={filtrar}  className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiSodaCan />
                     </IconContext.Provider>
                 </button>
 
-                <button className='S'>
+                <button value="Sabritas" onClick={filtrar}  className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiChipsBag />
                     </IconContext.Provider>
                 </button>
 
-                <button className='S'>
+                <button value="Hamburguesas" onClick={filtrar}  className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiHamburger />
                     </IconContext.Provider>
                 </button>
 
-                <button className='S'>
+                <button value="Pastel" onClick={filtrar}  className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiCakeSlice />
                     </IconContext.Provider>
                 </button>
 
-                <button className='S'>
+                <button value="Sandwich" onClick={filtrar}  className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiSandwich />
