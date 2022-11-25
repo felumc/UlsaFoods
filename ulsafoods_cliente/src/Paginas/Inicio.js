@@ -155,11 +155,10 @@ function Cart() {
    
      const Total = () =>{
         var contador = 0;
-        alert("HOLI")
-        {items.map((item) => (    
+        items.map((item) => (    
             contador=contador+(item.quantity*item.price)
 
-         ))}
+         ))
         alert(contador)
      }
 
