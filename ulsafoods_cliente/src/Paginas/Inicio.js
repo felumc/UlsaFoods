@@ -192,14 +192,19 @@ function Cart() {
                             </Col>
 
                             <Col >
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
-                                    <Form.Label>Contraseña</Form.Label>
-                                    <Form.Control type="password" />
+                                <Form.Group className="mb-3" controlId="formNombre">
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
-                                <Form.Group className="mb-3" controlId="formRol">
-                                    <Form.Label>Rol id</Form.Label>
-                                    <Form.Control type="number" />
+                                <Form.Group className="mb-3" controlId="formPaterno">
+                                    <Form.Label>Apellido Paterno</Form.Label>
+                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
+                                <Form.Group className="mb-3" controlId="formMaterno">
+                                    <Form.Label>Apellido Materno</Form.Label>
+                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                </Form.Group>
+
                                 <button style={{ width: '100%' }} className="Agregar" variant="success" type="submit" >
                                     Realizar pedido
                                 </button>
