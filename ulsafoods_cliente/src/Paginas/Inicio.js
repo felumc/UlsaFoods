@@ -34,6 +34,8 @@ import '../Css/Inicio/Inicio.css'
 // Componente de carrito
 import { CartProvider, useCart } from "react-use-cart";
 
+
+
 function Page() {
 
     const { addItem } = useCart();
@@ -141,6 +143,9 @@ function Page() {
 }
 
 function Cart() {
+
+
+
     const {
         isEmpty,
         totalUniqueItems,
