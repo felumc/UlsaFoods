@@ -17,6 +17,7 @@
     "react-use-cart": "^1.13.0",
     "reactstrap": "^9.1.5",
     "svgo": "^3.0.0",
+    "sweetalert2": "^11.6.14",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
