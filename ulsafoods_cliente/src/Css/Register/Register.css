@@ -21,19 +21,18 @@ body{
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    margin-top: 40px;
     object-fit: cover;
-    height: 720px;
-    width: 320px;
-    border-radius: 30px;
-    margin-left: 10%;
+    height: 100%;
+    width: 380px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px ;
 }
 
 .DerechaR {
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    margin-right: 60px;
+    margin-right: 40px;
     margin-top: 5%;
     float: right;
     display: flex;

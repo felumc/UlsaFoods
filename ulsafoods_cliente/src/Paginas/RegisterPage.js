@@ -9,6 +9,8 @@ function RegisterPage() {
             <Container>
                 <Register />
             </Container>
+
+           
         </>
     )
 }
