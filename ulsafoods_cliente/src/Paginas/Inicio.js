@@ -1,5 +1,5 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom/client';
 
 
 // Componente barra de navegación
@@ -61,11 +61,11 @@ function Page() {
         const element = (
             <CartProvider>
                 {producto.map((p) => (
-                    <CartProvider>
-                        <CardProd id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                    
+                        <CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
                             <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
                         </CardProd>
-                    </CartProvider>
+                    
                 ))}
             </CartProvider>
 
@@ -79,7 +79,7 @@ function Page() {
         <>
             <div className='Botonera'>
 
-                <button onClick={filtrar} className='S' >
+                <button id="Cafe" onClick={filtrar} className='S' >
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < BiCoffeeTogo />
@@ -127,7 +127,7 @@ function Page() {
             <div id="row" className="row">
                 {producto.map((p) => (
 
-                    <CardProd id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                    <CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
                         <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
                     </CardProd>
                 ))}
