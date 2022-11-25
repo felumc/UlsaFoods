@@ -2,6 +2,7 @@ import logo from '../images/logo2.png';
 import burger from '../images/burger.jpg';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 function Login() {
    
