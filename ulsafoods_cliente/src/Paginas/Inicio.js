@@ -62,13 +62,13 @@ function Page() {
             <CartProvider>
                 {producto.map((p) => (
                     <CartProvider>
-                    <CardProd id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
-                        <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
-                    </CardProd>
+                        <CardProd id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                            <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
+                        </CardProd>
                     </CartProvider>
                 ))}
             </CartProvider>
-            
+
         )
         // Le paso los parametros a renderizar
         root.render(element);
