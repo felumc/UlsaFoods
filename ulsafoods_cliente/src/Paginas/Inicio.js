@@ -1,4 +1,6 @@
 import React from 'react';
+import * as ReactDOM from 'react-dom';
+
 
 // Componente barra de navegación
 import { NavBar } from '../Componentes/Inicio/NavBar';
@@ -47,13 +49,84 @@ function Page() {
         setProducto(productos);
     }
 
+    // Listar productos especificos
+    const filtrar = event => {
+
+        console.log(event.currentTarget.id);
+
+
+        // Busco el elemnto por id
+        const root = ReactDOM.createRoot(document.getElementById('row'));
+        // Renderizo el componente
+        const element = (
+            <CartProvider>
+                {producto.map((p) => (
+                    <CartProvider>
+                    <CardProd id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                        <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
+                    </CardProd>
+                    </CartProvider>
+                ))}
+            </CartProvider>
+            
+        )
+        // Le paso los parametros a renderizar
+        root.render(element);
+
+    }
 
     return (
         <>
+            <div className='Botonera'>
 
-            <div className="row">
+                <button onClick={filtrar} className='S' >
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '60px' }}>
+                        < BiCoffeeTogo />
+                    </IconContext.Provider>
+                </button>
+
+                <button className='S'>
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '60px' }}>
+                        < GiSodaCan />
+                    </IconContext.Provider>
+                </button>
+
+                <button className='S'>
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '60px' }}>
+                        < GiChipsBag />
+                    </IconContext.Provider>
+                </button>
+
+                <button className='S'>
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '60px' }}>
+                        < GiHamburger />
+                    </IconContext.Provider>
+                </button>
+
+                <button className='S'>
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '60px' }}>
+                        < GiCakeSlice />
+                    </IconContext.Provider>
+                </button>
+
+                <button className='S'>
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '60px' }}>
+                        < GiSandwich />
+                    </IconContext.Provider>
+                </button>
+
+            </div>
+
+            <br /><br />
+            <div id="row" className="row">
                 {producto.map((p) => (
-                    
+
                     <CardProd id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
                         <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
                     </CardProd>
@@ -103,6 +176,8 @@ function Inicio() {
     const [lgShow, setLgShow] = useState(false);
 
 
+
+
     return (
         <>
 
@@ -110,63 +185,18 @@ function Inicio() {
                 <button onClick={() => setLgShow(true)} className="carrito">
                     <IconContext.Provider
                         value={{ color: 'white', size: '20px' }}>
-                        <BsFillCartFill /> 
+                        <BsFillCartFill />
                     </IconContext.Provider>
                 </button>
             </NavBar >
             <Container>
                 <h2>¿Qué necesitas?</h2>
-                <div  className='Botonera'>
 
-                    <button className='S' >
-                        <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '60px' }}>
-                            < BiCoffeeTogo />
-                        </IconContext.Provider>
-                    </button>
-
-                    <button className='S'>
-                        <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '60px' }}>
-                            < GiSodaCan />
-                        </IconContext.Provider>
-                    </button>
-
-                    <button className='S'>
-                        <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '60px' }}>
-                            < GiChipsBag />
-                        </IconContext.Provider>
-                    </button>
-
-                    <button className='S'>
-                        <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '60px' }}>
-                            < GiHamburger />
-                        </IconContext.Provider>
-                    </button>
-
-                    <button className='S'>
-                        <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '60px' }}>
-                            < GiCakeSlice />
-                        </IconContext.Provider>
-                    </button>
-
-                    <button className='S'>
-                        <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '60px' }}>
-                            < GiSandwich />
-                        </IconContext.Provider>
-                    </button>
-
-                </div>
-
-                <br /><br />
 
 
                 <CartProvider>
                     <Page />
+
                 </CartProvider>
             </Container>
             <Modal
