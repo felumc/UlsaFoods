@@ -30,7 +30,9 @@ function Login() {
                 }),
             });
             if (res.status === 200) {
-                navigate('/Inicio');
+                /*navigate('/Inicio');*/
+                navigate('/Inicio',{state:{correo:correo}});
+
             }
             if (res.status === 400) {
                 Swal.fire({

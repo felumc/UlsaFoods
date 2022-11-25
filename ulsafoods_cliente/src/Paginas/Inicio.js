@@ -3,6 +3,8 @@ import * as ReactDOM from 'react-dom/client';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {useLocation} from 'react-router-dom';
+
 
 // Componente barra de navegación
 import { NavBar } from '../Componentes/Inicio/NavBar';
@@ -205,7 +207,7 @@ function Cart() {
                                     <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
 
-                                <button style={{ width: '100%' }} className="Agregar" variant="success" type="submit" >
+                                <button style={{ width: '100%' }} className="Agregar_f" variant="success" type="submit" >
                                     Realizar pedido
                                 </button>
                             </Col>
@@ -249,7 +251,7 @@ function Cart() {
                     </li>
                 ))}
             </ul>
-            <button onClick={Total} style={{ width: '100%' }} className='Agregar'>Generar orden</button>
+            <button onClick={Total} style={{ width: '100%' }} className='Agregar_f'>Generar orden</button>
 
         </>
     );
@@ -257,6 +259,7 @@ function Cart() {
 function Inicio() {
     const [lgShow, setLgShow] = useState(false);
 
+    const location = useLocation();
 
 
     document.title = 'Inicio';
@@ -264,14 +267,19 @@ function Inicio() {
         <>
 
             <NavBar >
+            <span className='Identificador'>Bienvenido {location.state.correo} 👋</span>   
                 <button onClick={() => setLgShow(true)} className="carrito">
                     <IconContext.Provider
                         value={{ color: 'white', size: '20px' }}>
                         <BsFillCartFill />
+                       
                     </IconContext.Provider>
+                    
                 </button>
             </NavBar >
+
             <Container>
+
                 <h2>¿Qué necesitas?</h2>
 
 
