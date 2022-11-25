@@ -158,19 +158,31 @@ a {
     }
 }
 
-.Agregar{
+.Agregar {
     height: 35px;
     width: 150px;
     border-radius: 100px;
     background-color: #A27B5C;
-    color:white;
-    border:none;
+    color: white;
+    border: none;
 }
 
-.Agregar:hover{
-    background-color:#644c39;
+.Agregar:hover {
+    background-color: #644c39;
 }
 
-.Agregadiv{
+.Agregadiv {
     width: 100%;
+}
+
+.restar {
+    border: none;
+}
+
+.agregar {
+    border: none;
+}
+
+.eliminar {
+    border: none;
 }

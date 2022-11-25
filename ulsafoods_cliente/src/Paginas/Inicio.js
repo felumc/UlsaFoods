@@ -119,42 +119,42 @@ function Inicio() {
 
                     <button className='S' >
                         <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '100px' }}>
+                            value={{ color: '#A27B5C', size: '60px' }}>
                             < BiCoffeeTogo />
                         </IconContext.Provider>
                     </button>
 
                     <button className='S'>
                         <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '100px' }}>
+                            value={{ color: '#A27B5C', size: '60px' }}>
                             < GiSodaCan />
                         </IconContext.Provider>
                     </button>
 
                     <button className='S'>
                         <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '100px' }}>
+                            value={{ color: '#A27B5C', size: '60px' }}>
                             < GiChipsBag />
                         </IconContext.Provider>
                     </button>
 
                     <button className='S'>
                         <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '100px' }}>
+                            value={{ color: '#A27B5C', size: '60px' }}>
                             < GiHamburger />
                         </IconContext.Provider>
                     </button>
 
                     <button className='S'>
                         <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '100px' }}>
+                            value={{ color: '#A27B5C', size: '60px' }}>
                             < GiCakeSlice />
                         </IconContext.Provider>
                     </button>
 
                     <button className='S'>
                         <IconContext.Provider
-                            value={{ color: '#A27B5C', size: '100px' }}>
+                            value={{ color: '#A27B5C', size: '60px' }}>
                             < GiSandwich />
                         </IconContext.Provider>
                     </button>
