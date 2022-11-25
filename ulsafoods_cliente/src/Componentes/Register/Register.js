@@ -41,10 +41,20 @@ function Register() {
                 }),
             });
             if (res.status === 200) {
-                alert("Usuario creado correctamente");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario creado con éxito',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 navigate('/');
             } else {
-                alert("Error al registrar");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al crear usuario',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 console.log("ocurrio un error")
             }
         } catch (err) {
@@ -59,10 +69,10 @@ function Register() {
             <div className="DerechaR">
                 <form method="post" onSubmit={handleSubmit} className="FormR">
                     <a href="/#"><img src={logo} alt="Logo" /></a>
-                    <input type="text" id="id" className="input font" placeholder="Matricula" required onChange={(e) => setMatricula(e.target.value)}/>
-                    <input type="text" id="nombre" className="input font" placeholder="Nombre" required onChange={(e) => setNombre(e.target.value)}/>
-                    <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno" required onChange={(e) => setApepat(e.target.value)}/>
-                    <input type="text" id="apemat" className="input font" placeholder="Apellido Materno" required onChange={(e) => setApemat(e.target.value)}/>
+                    <input type="text" id="id" className="input font" placeholder="Matricula"  onChange={(e) => setMatricula(e.target.value)}/>
+                    <input type="text" id="nombre" className="input font" placeholder="Nombre"  onChange={(e) => setNombre(e.target.value)}/>
+                    <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno"  onChange={(e) => setApepat(e.target.value)}/>
+                    <input type="text" id="apemat" className="input font" placeholder="Apellido Materno"  onChange={(e) => setApemat(e.target.value)}/>
                     <select name="Carrera" id="carrera" className="input font" style={{'border-radius': '30px'}} onChange={(e) => setCarrera(e.target.value)}>
                         <option value="Contaduria">Contaduria Publica</option>
                         <option value="Negocios">Negocios Internacionales</option>

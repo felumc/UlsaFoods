@@ -33,7 +33,12 @@ function Login() {
                 alert(res.nombre);
                 navigate('/Inicio');
             } else {
-                alert("Error al iniciar sesión, verifique sus datos");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al iniciar sesión',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 console.log("ocurrio un error")
             }
         } catch (err) {

@@ -1,4 +1,3 @@
-import { Dropdown } from 'bootstrap/dist/js/bootstrap.bundle';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
