@@ -157,7 +157,7 @@ function Cart() {
         var contador = 0;
         alert("HOLI")
         {items.map((item) => (    
-            contador=contador+1
+            contador=contador+(item.quantity*item.price)
 
          ))}
         alert(contador)
