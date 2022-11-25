@@ -1,6 +1,8 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom/client';
-
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 // Componente barra de navegación
 import { NavBar } from '../Componentes/Inicio/NavBar';
@@ -152,20 +154,73 @@ function Cart() {
         items,
         updateItemQuantity,
         removeItem,
-        
+
     } = useCart();
 
     if (isEmpty) return <p>Tu carrito esta vacío</p>;
 
-   
-     const Total = () =>{
+    // Mapeo para encontrar el total de todos los productos del carrito
+    const Total = () => {
         var contador = 0;
-        items.map((item) => (    
-            contador=contador+(item.quantity*item.price)
+        items.map((item) => (
+            contador = contador + (item.quantity * item.price)
 
-         ))
-        alert(contador)
-     }
+        ))
+        // Busco elemento del modal
+        const root = ReactDOM.createRoot(document.getElementById('modal-body'));
+        const root2 = ReactDOM.createRoot(document.getElementById('example-modal-sizes-title-lg'));
+
+        // Renderizo el componente
+        const element = (
+            <>
+                <Form  >
+                    <Container>
+                        <Row>
+                            <Col>
+                                <Form.Group className="mb-3" controlId="formNombre">
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formPaterno">
+                                    <Form.Label>Apellido Paterno</Form.Label>
+                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formMaterno">
+                                    <Form.Label>Apellido Materno</Form.Label>
+                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                </Form.Group>
+                            </Col>
+
+                            <Col >
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Contraseña</Form.Label>
+                                    <Form.Control type="password" />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formRol">
+                                    <Form.Label>Rol id</Form.Label>
+                                    <Form.Control type="number" />
+                                </Form.Group>
+                                <button style={{ width: '100%' }} className="Agregar" variant="success" type="submit" >
+                                    Realizar pedido
+                                </button>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Form>
+                <h1>Total : $ {contador} MXN</h1>
+            </>
+        )
+        // Renderizo el componente
+        const element2 = (
+            <>
+                Pago
+            </>
+        )
+        // Le paso los parametros a renderizar
+        root.render(element);
+        // Le paso los parametros a renderizar
+        root2.render(element2);
+    }
 
     return (
         <>
@@ -189,7 +244,7 @@ function Cart() {
                     </li>
                 ))}
             </ul>
-            <button onClick={Total} style={{ width: '100%' }} className='Agregar'>Pagar</button>
+            <button onClick={Total} style={{ width: '100%' }} className='Agregar'>Generar orden</button>
 
         </>
     );
@@ -232,7 +287,7 @@ function Inicio() {
                         Detalle
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body id='modal-body'>
                     <CartProvider>
                         <Cart />
                     </CartProvider>
