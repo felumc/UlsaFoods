@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 function Login() {
-   
+
     const register = () => {
-        window.location.href = '/Register';
+        navigate('/Register');
     };
     const navigate = useNavigate();
 
@@ -32,7 +32,8 @@ function Login() {
             if (res.status === 200) {
                 alert(res.nombre);
                 navigate('/Inicio');
-            } else {
+            }
+            if (res.status === 400) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error al iniciar sesión',
@@ -43,9 +44,10 @@ function Login() {
             }
         } catch (err) {
             console.log(err);
+           
         }
     };
-    
+
     return (
         <div className="CuadroLogin">
             <div className="Izquierda">
@@ -54,12 +56,12 @@ function Login() {
             <div className="Derecha">
                 <form method="post" onSubmit={handleSubmit} className="Form" >
                     <a href="/#"><img src={logo} alt="Logo" /></a>
-                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional"  onChange={(e) => setCorreo(e.target.value)} />
-                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña"  onChange={(e) => setContrasenia(e.target.value)} />
+                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional" onChange={(e) => setCorreo(e.target.value)} />
+                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" onChange={(e) => setContrasenia(e.target.value)} />
                     <button className="Entrar" type="submit">
                         Login
                     </button>
-                    <button  className="button2" onClick={register}>
+                    <button className="button2" onClick={register}>
                         Registrarse
                     </button>
                 </form>
