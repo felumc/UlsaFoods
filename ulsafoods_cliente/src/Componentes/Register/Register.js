@@ -69,11 +69,11 @@ function Register() {
             <div className="DerechaR">
                 <form method="post" onSubmit={handleSubmit} className="FormR">
                     <a href="/#"><img src={logo} alt="Logo" /></a>
-                    <input type="text" id="id" className="input font" placeholder="Matricula"  onChange={(e) => setMatricula(e.target.value)}/>
-                    <input type="text" id="nombre" className="input font" placeholder="Nombre"  onChange={(e) => setNombre(e.target.value)}/>
-                    <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno"  onChange={(e) => setApepat(e.target.value)}/>
-                    <input type="text" id="apemat" className="input font" placeholder="Apellido Materno"  onChange={(e) => setApemat(e.target.value)}/>
-                    <select name="Carrera" id="carrera" className="input font" style={{'border-radius': '30px'}} onChange={(e) => setCarrera(e.target.value)}>
+                    <input type="text" id="id" className="input font" placeholder="Matricula"  required onChange={(e) => setMatricula(e.target.value)}/>
+                    <input type="text" id="nombre" className="input font" placeholder="Nombre"  required onChange={(e) => setNombre(e.target.value)}/>
+                    <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno" required onChange={(e) => setApepat(e.target.value)}/>
+                    <input type="text" id="apemat" className="input font" placeholder="Apellido Materno"  required onChange={(e) => setApemat(e.target.value)}/>
+                    <select name="Carrera" id="carrera" className="input font" style={{'border-radius': '30px'}} required onChange={(e) => setCarrera(e.target.value)}>
                         <option value="Contaduria">Contaduria Publica</option>
                         <option value="Negocios">Negocios Internacionales</option>
                         <option value="Administracion">Administracion Turistica</option>
@@ -95,8 +95,8 @@ function Register() {
                         <option value="Eduacion">Eduacion</option>
                         <option value="Comunicacion">Comunicacion</option>
                     </select>
-                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional"  onChange={(e) => setCorreo(e.target.value)}/>
-                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña"  onChange={(e) => setContrasenia(e.target.value)}/>
+                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional"  required onChange={(e) => setCorreo(e.target.value)}/>
+                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required onChange={(e) => setContrasenia(e.target.value)}/>
                     <button className="Entrar" type="submit">
                         Registrarse
                     </button>
