@@ -193,15 +193,15 @@ function Cart() {
 
                             <Col >
                                 <Form.Group className="mb-3" controlId="formNombre">
-                                    <Form.Label>Edificio</Form.Label>
-                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formPaterno">
                                     <Form.Label>Carrera</Form.Label>
                                     <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
+                                <Form.Group className="mb-3" controlId="formPaterno">
+                                    <Form.Label>Correo</Form.Label>
+                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                </Form.Group>
                                 <Form.Group className="mb-3" controlId="formMaterno">
-                                    <Form.Label>Salón</Form.Label>
+                                    <Form.Label>Monto</Form.Label>
                                     <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
 
