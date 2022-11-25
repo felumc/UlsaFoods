@@ -109,12 +109,12 @@ function Inicio() {
                 <button onClick={() => setLgShow(true)} className="carrito">
                     <IconContext.Provider
                         value={{ color: 'white', size: '20px' }}>
-                        <BsFillCartFill />
+                        <BsFillCartFill /> 
                     </IconContext.Provider>
                 </button>
             </NavBar >
             <Container>
-                <h2>Selecciona una categoria</h2>
+                <h2>¿Qué necesitas?</h2>
                 <div  className='Botonera'>
 
                     <button className='S' >

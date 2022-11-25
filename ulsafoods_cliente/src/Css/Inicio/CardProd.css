@@ -177,12 +177,27 @@ a {
 
 .restar {
     border: none;
+    background-color: #644c39;
+    margin: 5px;
+    width: 25px;
+    border-radius: 3px;
+    float: right;
 }
 
 .agregar {
     border: none;
+    background-color: #A27B5C;
+    margin: 5px;
+    width: 25px;
+    border-radius: 3px;
+    float: right;
 }
 
 .eliminar {
     border: none;
+    background-color: rgb(218, 82, 82);
+    margin: 5px;
+    width: 25px;
+    border-radius: 3px;
+    float: right;
 }
