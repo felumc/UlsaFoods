@@ -15,6 +15,7 @@ import { IconContext } from "react-icons";
 // Icono de carrito
 import { BsFillCartFill } from "react-icons/bs";
 import { BiCoffeeTogo } from "react-icons/bi";
+import { GiSodaCan } from "react-icons/gi";
 
 
 // Componente de modal de bootstrap
@@ -116,6 +117,13 @@ function Inicio() {
                     </IconContext.Provider>
                 </button>
 
+                <button >
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '100px' }}>
+                        < GiSodaCan />
+                    </IconContext.Provider>
+                </button>
+                
 
 
 
