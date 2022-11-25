@@ -201,7 +201,7 @@ function Cart() {
                                     <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formMaterno">
-                                    <Form.Label>Monto</Form.Label>
+                                    <Form.Label>Matrícula</Form.Label>
                                     <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
 
