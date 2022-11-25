@@ -18,3 +18,15 @@ h2{
     text-align: center;
     padding: 1em;
 } 
+
+.S{
+    border: none;
+    margin: 10px;
+    background-color: transparent;
+}
+
+.Botonera{
+    text-align: center;
+    width: 100%;
+}
+

@@ -12,10 +12,16 @@ import { Container } from '../Componentes/General/Container';
 // Componente de iconos bootstrap
 import { IconContext } from "react-icons";
 
-// Icono de carrito
+// Iconos
 import { BsFillCartFill } from "react-icons/bs";
 import { BiCoffeeTogo } from "react-icons/bi";
 import { GiSodaCan } from "react-icons/gi";
+import { GiChipsBag } from "react-icons/gi";
+import { GiHamburger } from "react-icons/gi";
+import { GiCakeSlice } from "react-icons/gi";
+import { GiSandwich } from "react-icons/gi";
+
+
 
 
 // Componente de modal de bootstrap
@@ -108,26 +114,56 @@ function Inicio() {
                 </button>
             </NavBar >
             <Container>
-                <h2>Página de inicio</h2>
+                <h2>Selecciona una categoria</h2>
+                <div  className='Botonera'>
 
-                <button >
-                    <IconContext.Provider
-                        value={{ color: '#A27B5C', size: '100px' }}>
-                        < BiCoffeeTogo />
-                    </IconContext.Provider>
-                </button>
+                    <button className='S' >
+                        <IconContext.Provider
+                            value={{ color: '#A27B5C', size: '100px' }}>
+                            < BiCoffeeTogo />
+                        </IconContext.Provider>
+                    </button>
 
-                <button >
-                    <IconContext.Provider
-                        value={{ color: '#A27B5C', size: '100px' }}>
-                        < GiSodaCan />
-                    </IconContext.Provider>
-                </button>
-                
+                    <button className='S'>
+                        <IconContext.Provider
+                            value={{ color: '#A27B5C', size: '100px' }}>
+                            < GiSodaCan />
+                        </IconContext.Provider>
+                    </button>
+
+                    <button className='S'>
+                        <IconContext.Provider
+                            value={{ color: '#A27B5C', size: '100px' }}>
+                            < GiChipsBag />
+                        </IconContext.Provider>
+                    </button>
+
+                    <button className='S'>
+                        <IconContext.Provider
+                            value={{ color: '#A27B5C', size: '100px' }}>
+                            < GiHamburger />
+                        </IconContext.Provider>
+                    </button>
+
+                    <button className='S'>
+                        <IconContext.Provider
+                            value={{ color: '#A27B5C', size: '100px' }}>
+                            < GiCakeSlice />
+                        </IconContext.Provider>
+                    </button>
+
+                    <button className='S'>
+                        <IconContext.Provider
+                            value={{ color: '#A27B5C', size: '100px' }}>
+                            < GiSandwich />
+                        </IconContext.Provider>
+                    </button>
+
+                </div>
+
+                <br /><br />
 
 
-
-                <br />
                 <CartProvider>
                     <Page />
                 </CartProvider>
