@@ -30,7 +30,6 @@ function Login() {
                 }),
             });
             if (res.status === 200) {
-                alert(res.nombre);
                 navigate('/Inicio');
             }
             if (res.status === 400) {
