@@ -12,8 +12,10 @@ import { Container } from '../Componentes/General/Container';
 // Componente de iconos bootstrap
 import { IconContext } from "react-icons";
 
-// Componente iconos de carrito
+// Icono de carrito
 import { BsFillCartFill } from "react-icons/bs";
+import { BiCoffeeTogo } from "react-icons/bi";
+
 
 // Componente de modal de bootstrap
 import Modal from 'react-bootstrap/Modal';
@@ -24,6 +26,7 @@ import '../Css/Inicio/Inicio.css'
 import { CartProvider, useCart } from "react-use-cart";
 
 function Page() {
+
     const { addItem } = useCart();
 
     const [producto, setProducto] = React.useState([])
@@ -44,7 +47,7 @@ function Page() {
             <div className="row">
                 {producto.map((p) => (
                     <CardProd id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
-                        <button onClick={() => addItem(p)} className="Agregar">Agregar a carrito</button>
+                        <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
                     </CardProd>
                 ))}
             </div>
@@ -105,6 +108,17 @@ function Inicio() {
             </NavBar >
             <Container>
                 <h2>Página de inicio</h2>
+
+                <button >
+                    <IconContext.Provider
+                        value={{ color: '#A27B5C', size: '100px' }}>
+                        < BiCoffeeTogo />
+                    </IconContext.Provider>
+                </button>
+
+
+
+
                 <br />
                 <CartProvider>
                     <Page />
@@ -118,7 +132,7 @@ function Inicio() {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="example-modal-sizes-title-lg">
-                        Carrito de compras
+                        Detalle
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
