@@ -52,8 +52,8 @@ function Page() {
     // Listar productos especificos
     const filtrar = event => {
 
-        console.log(event.currentTarget.value);
 
+        const categoria = event.currentTarget.value;
 
         // Busco el elemnto por id
         const root = ReactDOM.createRoot(document.getElementById('row'));
@@ -64,7 +64,7 @@ function Page() {
         const element = (
             <CartProvider>
                 {producto.map((p) => (
-                     p.id ===1
+                     p.categoria ===categoria
                     ?(<CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
                         <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
                     </CardProd>)
@@ -104,7 +104,7 @@ function Page() {
                     </IconContext.Provider>
                 </button>
 
-                <button value="Hamburguesas" onClick={filtrar}  className='S'>
+                <button value="Hamburguesa" onClick={filtrar}  className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiHamburger />
@@ -118,7 +118,7 @@ function Page() {
                     </IconContext.Provider>
                 </button>
 
-                <button value="Sandwich" onClick={filtrar}  className='S'>
+                <button value="Baguette" onClick={filtrar}  className='S'>
                     <IconContext.Provider
                         value={{ color: '#A27B5C', size: '60px' }}>
                         < GiSandwich />

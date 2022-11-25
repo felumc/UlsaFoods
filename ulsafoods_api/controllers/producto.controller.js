@@ -19,6 +19,7 @@ exports.create = (req, res) => {
         stock: req.body.stock,
         price: req.body.price,
         cafeteria:req.body.cafeteria,
+        categoria:req.body.categoria,
         url_imagen: req.body.url_imagen
     };
 

@@ -12,6 +12,9 @@ module.exports = (sequelize, Sequelize) => {
         cafeteria: {
             type: Sequelize.STRING
         },
+        categoria: {
+            type: Sequelize.STRING
+        },
         url_imagen: {
             type: Sequelize.STRING
         }
