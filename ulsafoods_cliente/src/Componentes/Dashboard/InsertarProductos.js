@@ -1,12 +1,12 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Container } from 'reactstrap';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import React from 'react';
+import Row from 'react-bootstrap/Row';
+import { Table, Container } from 'reactstrap';
+import { useState } from 'react';
 
 
 const InsertarProductos = () => {
