@@ -3,15 +3,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button, Container} from 'reactstrap';
 
 const InsertarVentas= () => {
+
+    document.title="Clientes";
+
     /* state = {
         data: data
     } */
     return (
         <div>
             <Container>
-                <Button color='success' className='float-right'>Insertar nueva venta</Button>
+                <Button color='success' className='dv'>Insertar una nueva venta</Button>
                 <br/><br/>
-                <Table>
+                <Table striped bordered hover id="myTable">
                     <thead>
                         <tr>
                         <th></th>

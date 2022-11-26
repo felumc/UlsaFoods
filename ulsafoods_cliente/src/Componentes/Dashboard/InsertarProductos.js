@@ -7,6 +7,9 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
 const InsertarProductos = () => {
+
+    document.title="Productos";
+
     const [lgShow, setLgShow] = useState(false);
 
     // Envio de formulario
@@ -110,7 +113,7 @@ const InsertarProductos = () => {
                 }
             }
         }
-         
+
     }
 
     return (
@@ -148,7 +151,7 @@ const InsertarProductos = () => {
                             <Form.Label>Cafeteria</Form.Label>
                             <Form.Control type="text" placeholder="Ingresa la cafeteria" onChange={(e) => setCafeteria(e.target.value)} />
                         </Form.Group>
-                        <Button className="btnp" variant="success" type="submit" >
+                        <Button className="dv" type="submit" >
                             Agregar
                         </Button>
                         <div className="message">{message ? <p>{message}</p> : null}</div>
@@ -156,13 +159,13 @@ const InsertarProductos = () => {
                 </Modal.Body>
             </Modal>
             <Container>
-                <Button onClick={() => setLgShow(true)} color='primary' className='float-right'>Insertar nuevo producto</Button>
+                <Button onClick={() => setLgShow(true)} className='dv'>Insertar nuevo producto</Button>
                 <br /><br />
 
-                <input type="text" id="myInput" onKeyUp={busqueda} placeholder="Search for names.." title="Type in a name" />
+                <input type="text" id="myInput" onKeyUp={busqueda} placeholder="Buscar por nombre de producto" title="Type in a name" />
 
                 <Table striped bordered hover id="myTable">
-                    <thead>
+                    <thead className='t'>
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>

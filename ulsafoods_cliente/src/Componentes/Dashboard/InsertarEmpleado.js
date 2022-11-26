@@ -7,6 +7,9 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
 const InsertarEmpleado = () => {
+
+    document.title="Empleados";
+
     const [lgShow, setLgShow] = useState(false);
 
     // Envio de formulario
@@ -154,7 +157,7 @@ const InsertarEmpleado = () => {
                             <Form.Label>Salario</Form.Label>
                             <Form.Control type="float" placeholder="Ingresa el salario" onChange={(e) => setSalario(e.target.value)} />
                         </Form.Group>
-                        <Button className="btnp" variant="success" type="submit" >
+                        <Button className='dv'  type="submit" >
                             Agregar
                         </Button>
                         <div className="message">{message ? <p>{message}</p> : null}</div>
@@ -162,7 +165,7 @@ const InsertarEmpleado = () => {
                 </Modal.Body>
             </Modal>
             <Container>
-                <Button onClick={() => setLgShow(true)} color='primary' className='float-right'>Insertar un nuevo empleado</Button>
+                <Button onClick={() => setLgShow(true)} className='dv'>Insertar un nuevo empleado</Button>
                 <br /><br />
 
                 <input type="text" id="myInput" onKeyUp={busqueda} placeholder="Search for names.." title="Type in a name" />
