@@ -44,7 +44,7 @@ function Login() {
                 console.log("ocurrio un error")
             }
             if (res.status === 200) {
-                navigate('/Dashboard/ventas');
+                navigate('/Dashboard/productos');
             } 
         } catch (err) {
             console.log(err);
