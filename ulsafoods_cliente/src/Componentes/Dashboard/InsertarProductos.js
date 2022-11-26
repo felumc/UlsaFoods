@@ -61,7 +61,7 @@ const InsertarProductos = () => {
                     id: '',
                     nombre: nombre,
                     stock: stock,
-                    precio: precio,
+                    price: precio,
                     cafeteria: cafeteria,
                     url_imagen: url,
                     categoria: categoria,
@@ -205,8 +205,8 @@ const InsertarProductos = () => {
                                 <td>{item.id}</td>
                                 <td>{item.nombre}</td>
                                 <td>{item.stock}</td>
+                                <td>{item.price}</td>
                                 <td>{item.categoria}</td>
-                                <td>{item.precio}</td>
                                 <td>{item.cafeteria}</td>
                                 <td>
                                     <Button variant="primary">Editar</Button>{'     '}
