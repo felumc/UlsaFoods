@@ -21,6 +21,7 @@ const InsertarProductos = () => {
     const [stock, setStock] = useState("");
     const [precio, setPrecio] = useState("");
     const [cafeteria, setCafeteria] = useState("");
+    const [categoria, setCategoria] = useState("");
 
     // Variables para subir imagen a servidor
     const [image, setImage] = useState("");
@@ -44,8 +45,9 @@ const InsertarProductos = () => {
             .catch(err => console.log(err))
     }
 
-    const [message, setMessage] = useState("");
 
+
+    // Consumo de la api para metodo post
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -62,35 +64,37 @@ const InsertarProductos = () => {
                     precio: precio,
                     cafeteria: cafeteria,
                     url_imagen: url,
+                    categoria: categoria,
                     createdAt: '',
                     updatedAt: '',
                 }),
             });
             if (res.status === 200) {
                 setNombre("");
+                setCategoria("");
                 setStock("");
                 setPrecio("");
                 setImage("");
                 setCafeteria("")
                 setUrl("");
-                setMessage("Producto agregado con éxito");
                 window.location.reload()
                 window.scrollTo(0, document.body.scrollHeight);
             } else {
-                setMessage("Ocurrio un error");
+                console.log("Ocurrio un error");
             }
         } catch (err) {
             console.log(err);
         }
     };
 
-    //Generar tabla
+    //  Variable para listar productos
     const [producto, setProducto] = React.useState([])
 
     React.useEffect(() => {
         obtenerDatos();
     }, [])
 
+    // Metodo get de la api
     const obtenerDatos = async () => {
         const data = await fetch('http://localhost:9595/administrador/productos/');
         const productos = await data.json();
@@ -98,7 +102,6 @@ const InsertarProductos = () => {
     }
 
     //Barra de busqueda
-
     const busqueda = () => {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
@@ -122,6 +125,9 @@ const InsertarProductos = () => {
 
     return (
         <div>
+
+            {/*Modal para agregar producto*/}
+
             <Modal
                 size="lg"
                 show={lgShow}
@@ -156,6 +162,10 @@ const InsertarProductos = () => {
                                     <Form.Label>Precio</Form.Label>
                                     <Form.Control type="float" placeholder="Ingresa el precio" onChange={(e) => setPrecio(e.target.value)} />
                                 </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicCategoria">
+                                    <Form.Label>Categoria</Form.Label>
+                                    <Form.Control type="text" placeholder="Ingresa la categoria" onChange={(e) => setCategoria(e.target.value)} />
+                                </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicCafeteria">
                                     <Form.Label>Cafeteria</Form.Label>
                                     <Form.Control type="text" placeholder="Ingresa la cafeteria" onChange={(e) => setCafeteria(e.target.value)} />
@@ -163,7 +173,6 @@ const InsertarProductos = () => {
                                 <Button className="dv" type="submit" >
                                     Agregar
                                 </Button>
-                                <div className="message">{message ? <p>{message}</p> : null}</div>
                             </Col>
 
 
@@ -185,6 +194,7 @@ const InsertarProductos = () => {
                             <th>Nombre</th>
                             <th>Stock</th>
                             <th>Precio</th>
+                            <th>Categoría</th>
                             <th>Cafeteria</th>
                             <th >Acciones</th>
                         </tr>
