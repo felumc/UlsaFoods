@@ -151,7 +151,7 @@ exports.login = (req, res) => {
         .then(cliente => {
             // Validar request
             if (cliente) {
-                if(cliente.rol==="Adminsitrador"){
+                if(cliente.rol==="Administrador"){
                     res.status(200).send(cliente);
                 return;
                 }
