@@ -158,7 +158,10 @@ function Cart() {
         const clientes = await data.json();
         setCliente(clientes);
     }
-    obtenerDatos();
+    
+    React.useEffect(() => {
+        obtenerDatos();
+    })
 
 
     const {
@@ -174,6 +177,7 @@ function Cart() {
 
     // Mapeo para encontrar el total de todos los productos del carrito
     const Total = () => {
+    
         var contador = 0;
         items.map((item) => (
             contador = contador + (item.quantity * item.price)
@@ -280,7 +284,11 @@ function Inicio() {
         const clientes = await data.json();
         setCliente(clientes);
     }
-    obtenerDatos();
+
+    React.useEffect(() => {
+        obtenerDatos();
+    })
+
 
     document.title = 'Inicio';
     return (

@@ -131,3 +131,9 @@ input {
     color: #3F4E4F;
     width: 271px;
 }
+
+::-ms-reveal {
+    color: #3F4E4F;
+    position: absolute;
+    left: 240px;
+  }

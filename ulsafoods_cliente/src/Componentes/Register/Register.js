@@ -76,6 +76,7 @@ function Register() {
                     <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno" required onChange={(e) => setApepat(e.target.value)} />
                     <input type="text" id="apemat" className="input font" placeholder="Apellido Materno" required onChange={(e) => setApemat(e.target.value)} />
                     <select name="Carrera" id="carrera" className="input font" style={{ 'border-radius': '30px' }} required onChange={(e) => setCarrera(e.target.value)}>
+                        <option value="">Mi carrera</option>
                         <option value="Contaduria">Contaduria Publica</option>
                         <option value="Negocios">Negocios Internacionales</option>
                         <option value="Administracion">Administracion Turistica</option>
