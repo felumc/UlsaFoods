@@ -7,7 +7,7 @@ import LoginPage from './Paginas/LoginPage';
 import RegisterPage from './Paginas/RegisterPage';
 //Rutas Dashboard
 import Productos from '../src/Paginas/Dashboard/Productos';
-import Ventas from '../src/Paginas/Dashboard/Ventas';
+import Clientes from '../src/Paginas/Dashboard/Clientes';
 import Reportes from '../src/Componentes/Dashboard/Reportes';
 import Empleados from './Paginas/Dashboard/Empleados';
 
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<LoginPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/Inicio" element={<Inicio />} />
-        <Route path="/Dashboard/ventas" element={<Ventas />} />
+        <Route path="/Dashboard/clientes" element={<Clientes />} />
         <Route path="/Dashboard/productos" element={<Productos />} />
         <Route path="/Dashboard/empleados" element={<Empleados />} />
         <Route path="/Dashboard/reportes" element={<Reportes />} />

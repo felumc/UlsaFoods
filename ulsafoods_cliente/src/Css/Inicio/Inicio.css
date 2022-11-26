@@ -15,9 +15,27 @@
 }
 
 h2{
+    font-size: 22px;
+    color:#3F4E4F;
     text-align: center;
     padding: 1em;
 } 
-.nav-link{
 
+.S{
+    border: none;
+    margin: 10px;
+    background-color: transparent;
 }
+
+.Botonera{
+    text-align: center;
+    width: 100%;
+}
+
+
+
+.Identificador{
+    margin-right: 17px;
+    color: white;
+}
+

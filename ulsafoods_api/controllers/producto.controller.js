@@ -17,8 +17,9 @@ exports.create = (req, res) => {
     const producto = {
         nombre: req.body.nombre,
         stock: req.body.stock,
-        precio: req.body.precio,
+        price: req.body.price,
         cafeteria:req.body.cafeteria,
+        categoria:req.body.categoria,
         url_imagen: req.body.url_imagen
     };
 

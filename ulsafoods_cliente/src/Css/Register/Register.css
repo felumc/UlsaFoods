@@ -5,7 +5,7 @@ body{
 
 .CuadroLoginR {
     font-size: 20px;
-    font-family: "Montserrat"; 
+    /*font-family: "Montserrat"; */
     left: 50%;
     top: 70%;
     position: absolute;
@@ -21,19 +21,18 @@ body{
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    margin-top: 40px;
     object-fit: cover;
-    height: 720px;
-    width: 320px;
-    border-radius: 30px;
-    margin-left: 10%;
+    height: 100%;
+    width: 380px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px ;
 }
 
 .DerechaR {
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    margin-right: 60px;
+    margin-right: 40px;
     margin-top: 5%;
     float: right;
     display: flex;
@@ -75,7 +74,7 @@ input:focus {
 }
 
 .font {
-    font-family: "Montserrat";
+    /*font-family: "Montserrat";*/
     font-size: 0.8em;
     color: black;
 }
@@ -127,3 +126,14 @@ input {
     border: none;
     border-radius: 30px;
 }
+
+#carrera{
+    color: #3F4E4F;
+    width: 271px;
+}
+
+::-ms-reveal {
+    color: #3F4E4F;
+    position: absolute;
+    left: 240px;
+  }

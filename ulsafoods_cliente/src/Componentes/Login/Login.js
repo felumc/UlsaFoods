@@ -2,13 +2,12 @@ import logo from '../images/logo2.png';
 import burger from '../images/burger.jpg';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 function Login() {
-    const inicio = () => {
-        window.location.href = '/Inicio';
-    };
+
     const register = () => {
-        window.location.href = '/Register';
+        navigate('/Register');
     };
     const navigate = useNavigate();
 
@@ -30,17 +29,29 @@ function Login() {
                     contrasenia: contrasenia
                 }),
             });
-            if (res.status === 200) {
-                navigate('/Inicio');
-            } else {
-                alert("Error al iniciar sesión, verifique sus datos");
+            if (res.status === 201) {
+                /*navigate('/Inicio');*/
+                navigate('/Inicio',{state:{correo:correo}});
+
+            }
+            if (res.status === 400) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al iniciar sesión',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 console.log("ocurrio un error")
             }
+            if (res.status === 200) {
+                navigate('/Dashboard/productos');
+            } 
         } catch (err) {
             console.log(err);
+           
         }
     };
-    
+
     return (
         <div className="CuadroLogin">
             <div className="Izquierda">
@@ -49,13 +60,13 @@ function Login() {
             <div className="Derecha">
                 <form method="post" onSubmit={handleSubmit} className="Form" >
                     <a href="/#"><img src={logo} alt="Logo" /></a>
-                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional" required onChange={(e) => setCorreo(e.target.value)} />
-                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required onChange={(e) => setContrasenia(e.target.value)} />
+                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional" onChange={(e) => setCorreo(e.target.value)} />
+                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" onChange={(e) => setContrasenia(e.target.value)} />
                     <button className="Entrar" type="submit">
                         Login
                     </button>
-                    <button type="submit" className="button2" onClick={register}>
-                        Sign up
+                    <button className="button2" onClick={register}>
+                        Registrarse
                     </button>
                 </form>
             </div>
