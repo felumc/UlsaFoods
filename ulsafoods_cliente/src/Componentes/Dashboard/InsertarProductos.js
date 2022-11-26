@@ -13,19 +13,20 @@ const InsertarProductos = () => {
 
     document.title = "Productos";
 
+    // Mostrar-Ocultar Modal
     const [lgShow, setLgShow] = useState(false);
 
-    // Envio de formulario
-
+    // Variables para agregar o editar
     const [nombre, setNombre] = useState("");
     const [stock, setStock] = useState("");
     const [precio, setPrecio] = useState("");
     const [cafeteria, setCafeteria] = useState("");
 
-    //Subir imagen a servidor
+    // Variables para subir imagen a servidor
     const [image, setImage] = useState("");
     const [url, setUrl] = useState("");
 
+    // Consumo de api para subir imagen a servidor
     const uploadImage = () => {
         const data = new FormData()
         data.append("file", image)
