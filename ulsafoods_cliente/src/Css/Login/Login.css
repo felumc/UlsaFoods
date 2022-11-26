@@ -120,15 +120,7 @@ a {
     text-decoration: none;
 }
 
-.RecoverPass :hover {
-    color: yellow;
-}
 
-.RecoverPass {
-    font-size: 12px;
-    margin-top: 10px;
-    color: #DCD7C9;
-}
 
 input {
     background-color: #f5f5f5;
