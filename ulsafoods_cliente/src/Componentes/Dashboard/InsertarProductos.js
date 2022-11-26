@@ -5,10 +5,13 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 const InsertarProductos = () => {
 
-    document.title="Productos";
+    document.title = "Productos";
 
     const [lgShow, setLgShow] = useState(false);
 
@@ -130,31 +133,41 @@ const InsertarProductos = () => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+
                     <Form onSubmit={handleSubmit}>
-                        <Form.Group className="mb-3" controlId="formBasicImage">
-                            <Form.Label>Sube tu imagen</Form.Label>
-                            <Form.Control type="file" onBlur={uploadImage} onChange={(e) => setImage(e.target.files[0])} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicNombre">
-                            <Form.Label>Nombre</Form.Label>
-                            <Form.Control type="text" placeholder="Ingresa el nombre" onChange={(e) => setNombre(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicStock">
-                            <Form.Label>Stock</Form.Label>
-                            <Form.Control type="number" placeholder="Ingresa el stock" onChange={(e) => setStock(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicPrecio">
-                            <Form.Label>Precio</Form.Label>
-                            <Form.Control type="float" placeholder="Ingresa el precio" onChange={(e) => setPrecio(e.target.value)} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCafeteria">
-                            <Form.Label>Cafeteria</Form.Label>
-                            <Form.Control type="text" placeholder="Ingresa la cafeteria" onChange={(e) => setCafeteria(e.target.value)} />
-                        </Form.Group>
-                        <Button className="dv" type="submit" >
-                            Agregar
-                        </Button>
-                        <div className="message">{message ? <p>{message}</p> : null}</div>
+                        <Row>
+                            <Col>
+                                <Form.Group className="mb-3" controlId="formBasicImage">
+                                    <Form.Label>Sube tu imagen</Form.Label>
+                                    <Form.Control type="file" onBlur={uploadImage} onChange={(e) => setImage(e.target.files[0])} />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicNombre">
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control type="text" placeholder="Ingresa el nombre" onChange={(e) => setNombre(e.target.value)} />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicStock">
+                                    <Form.Label>Stock</Form.Label>
+                                    <Form.Control type="number" placeholder="Ingresa el stock" onChange={(e) => setStock(e.target.value)} />
+                                </Form.Group>
+                            </Col>
+                            <Col>
+                                <Form.Group className="mb-3" controlId="formBasicPrecio">
+                                    <Form.Label>Precio</Form.Label>
+                                    <Form.Control type="float" placeholder="Ingresa el precio" onChange={(e) => setPrecio(e.target.value)} />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicCafeteria">
+                                    <Form.Label>Cafeteria</Form.Label>
+                                    <Form.Control type="text" placeholder="Ingresa la cafeteria" onChange={(e) => setCafeteria(e.target.value)} />
+                                </Form.Group>
+                                <Button className="dv" type="submit" >
+                                    Agregar
+                                </Button>
+                                <div className="message">{message ? <p>{message}</p> : null}</div>
+                            </Col>
+
+
+                        </Row>
+
                     </Form>
                 </Modal.Body>
             </Modal>

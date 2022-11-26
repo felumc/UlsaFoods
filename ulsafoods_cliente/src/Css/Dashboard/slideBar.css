@@ -24,7 +24,7 @@ a {
     width: 250px;
 }
 
-.dv :hover {
+.dv:hover {
     background-color: #A27B5C;
     border: none;
     width: 250px;
