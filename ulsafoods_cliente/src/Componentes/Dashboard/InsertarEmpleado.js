@@ -165,7 +165,7 @@ const InsertarEmpleado = () => {
                 </Modal.Body>
             </Modal>
             <Container>
-                <Button onClick={() => setLgShow(true)} className='dv'>Insertar un nuevo empleado</Button>
+                <button onClick={() => setLgShow(true)} className='dv'>Insertar un nuevo empleado</button>
                 <br /><br />
 
                 <input type="text" id="myInput" onKeyUp={busqueda} placeholder="Search for names.." title="Type in a name" />

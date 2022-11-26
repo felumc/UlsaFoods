@@ -22,6 +22,9 @@ a {
     background-color: #A27B5C;
     border: none;
     width: 250px;
+    height: 35px;
+    color: white;
+    border-radius: 10px;
 }
 
 .dv:hover {
@@ -29,6 +32,28 @@ a {
     border: none;
     width: 250px;
 }
+.dv:focus{
+    background-color: #A27B5C;
+}
 .CRUD{
     width: 110px;
 }
+.swal2-confirm {
+    background-color: #A27B5C;
+    border: none;
+    border-radius: 7px;
+    color:white;
+    height: 40px;
+    width: 100px;
+    margin: 5px;
+  }
+  
+  .swal2-cancel {
+    margin: 5px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 7px;
+    color:white;
+    height: 40px;
+    width: 100px;
+  }

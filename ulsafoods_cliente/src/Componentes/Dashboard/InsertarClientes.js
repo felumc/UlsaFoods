@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Button, Container} from 'reactstrap';
+import { Table,Container} from 'reactstrap';
 
 const InsertarClientes= () => {
 
@@ -12,7 +12,7 @@ const InsertarClientes= () => {
     return (
         <div>
             <Container>
-                <Button color='success' className='dv'>Insertar una nueva venta</Button>
+                <button  className='dv'>Insertar una nuevo cliente</button>
                 <br/><br/>
                 <Table striped bordered hover id="myTable">
                     <thead>
