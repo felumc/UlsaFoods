@@ -205,6 +205,7 @@ const InsertarProductos = () => {
                                 <td>{item.id}</td>
                                 <td>{item.nombre}</td>
                                 <td>{item.stock}</td>
+                                <td>{item.categoria}</td>
                                 <td>{item.precio}</td>
                                 <td>{item.cafeteria}</td>
                                 <td>
