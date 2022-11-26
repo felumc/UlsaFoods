@@ -209,9 +209,9 @@ const InsertarProductos = () => {
                                 <td>{item.categoria}</td>
                                 <td>{item.cafeteria}</td>
                                 <td>
-                                    <Button variant="primary">Editar</Button>{'     '}
-                                    <Button variant="danger">Eliminar</Button>{'    '}
-                                    <Button variant="warning">Ver imagen</Button>
+                                    <Button className='CRUD' variant="primary">Editar</Button>{'     '}
+                                    <Button className='CRUD' variant="danger">Eliminar</Button>{'    '}
+                                    <Button className='CRUD' variant="warning">Ver imagen</Button>
                                 </td>
                             </tr>))}
                     </tbody>
