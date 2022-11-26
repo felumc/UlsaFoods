@@ -156,6 +156,9 @@ const InsertarProductos = () => {
                                     <Form.Label>Stock</Form.Label>
                                     <Form.Control type="number" placeholder="Ingresa el stock" onChange={(e) => setStock(e.target.value)} />
                                 </Form.Group>
+                                <Button style={{width:"100%"}}className="dv" type="submit" >
+                                    Agregar
+                                </Button>
                             </Col>
                             <Col>
                                 <Form.Group className="mb-3" controlId="formBasicPrecio">
@@ -170,9 +173,7 @@ const InsertarProductos = () => {
                                     <Form.Label>Cafeteria</Form.Label>
                                     <Form.Control type="text" placeholder="Ingresa la cafeteria" onChange={(e) => setCafeteria(e.target.value)} />
                                 </Form.Group>
-                                <Button className="dv" type="submit" >
-                                    Agregar
-                                </Button>
+                                
                             </Col>
 
 
@@ -199,7 +200,7 @@ const InsertarProductos = () => {
                             <th >Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>{
+                    <tbody className='tb'>{
                         producto.map(item => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>

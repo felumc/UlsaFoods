@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from '../../Componentes/Dashboard/NavbarDashboard';
 import SlideBar from '../../Componentes/Dashboard/SlideBar';
-import InsertarVentas from '../../Componentes/Dashboard/InsertarVentas';
+import InsertarClientes from '../../Componentes/Dashboard/InsertarClientes';
 import '../../Css/Dashboard/dashboard.css'
 
-const Ventas = () => {
+const Clientes = () => {
     return (
         <div>
             <Navbar />
@@ -12,10 +12,10 @@ const Ventas = () => {
                 <SlideBar />
             </div>
             <div className='content'>
-                <InsertarVentas />
+                <InsertarClientes />
             </div>
         </div>
     );
 };
 
-export default Ventas;
+export default Clientes;

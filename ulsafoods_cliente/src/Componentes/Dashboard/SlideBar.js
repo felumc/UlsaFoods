@@ -11,7 +11,7 @@ const SlideBar = () => {
                     <NavLink to="/Dashboard/productos"  className='text-light rounded py-2 w-100 d-inline-block px-3' activeclassname='active'><FaIcons.FaCarrot className='me-2' color="white" /> Productos</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/Dashboard/ventas" className='text-light rounded py-2 w-100 d-inline-block px-3' activeclassname='active'><FaIcons.FaCashRegister className='me-2' color="white" /> Clientes</NavLink>
+                    <NavLink to="/Dashboard/clientes" className='text-light rounded py-2 w-100 d-inline-block px-3' activeclassname='active'><FaIcons.FaCashRegister className='me-2' color="white" /> Clientes</NavLink>
                 </li>
                 <li>
                     <NavLink to="/Dashboard/empleados" className='text-light rounded py-2 w-100 d-inline-block px-3' activeclassname='active'><FaIcons.FaHouseUser className='me-2' color="white" /> Empleados</NavLink>

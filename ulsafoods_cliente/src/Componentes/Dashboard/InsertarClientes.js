@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button, Container} from 'reactstrap';
 
-const InsertarVentas= () => {
+const InsertarClientes= () => {
 
     document.title="Clientes";
 
@@ -43,4 +43,4 @@ const InsertarVentas= () => {
     );
 };
 
-export default InsertarVentas;
+export default InsertarClientes;
