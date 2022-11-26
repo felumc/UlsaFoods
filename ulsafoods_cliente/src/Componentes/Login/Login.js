@@ -43,6 +43,15 @@ function Login() {
                 })
                 console.log("ocurrio un error")
             }
+            if (res.status === 201) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario creado con éxito',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate('/Dashboard/ventas');
+            } 
         } catch (err) {
             console.log(err);
            

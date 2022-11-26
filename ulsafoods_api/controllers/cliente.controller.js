@@ -23,6 +23,7 @@ exports.create = (req, res) => {
                     carrera: req.body.carrera,
                     correo: req.body.correo,
                     contrasenia: req.body.contrasenia,
+                    rol:req.body.rol
                 };
 
                 // Guardar Cliente en la base de datos
@@ -150,8 +151,15 @@ exports.login = (req, res) => {
         .then(cliente => {
             // Validar request
             if (cliente) {
-                res.status(200).send(cliente);
+                if(cliente.rol==="Adminsitrador"){
+                    res.status(200).send(cliente);
                 return;
+                }
+                if(cliente.rol==="Usuario"){
+                    res.status(201).send(cliente);
+                return;
+                }
+                
             } else {
                 res.status(400).send({
                     mensaje: "Correo o contraseña incorrectos"

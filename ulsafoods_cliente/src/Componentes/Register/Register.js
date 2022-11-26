@@ -19,7 +19,7 @@ function Register() {
     const [carrera, setCarrera] = useState("");
     const [correo, setCorreo] = useState("");
     const [contrasenia, setContrasenia] = useState("");
-    
+
 
     let handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,7 +37,8 @@ function Register() {
                     apemat: apemat,
                     carrera: carrera,
                     correo: correo,
-                    contrasenia: contrasenia
+                    contrasenia: contrasenia,
+                    rol: "Usuario"
                 }),
             });
             if (res.status === 200) {
@@ -48,7 +49,8 @@ function Register() {
                     timer: 1500
                 })
                 navigate('/');
-            } else {
+            }
+           else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error al crear usuario',
@@ -69,11 +71,11 @@ function Register() {
             <div className="DerechaR">
                 <form method="post" onSubmit={handleSubmit} className="FormR">
                     <a href="/#"><img src={logo} alt="Logo" /></a>
-                    <input type="text" id="id" className="input font" placeholder="Matricula"  required onChange={(e) => setMatricula(e.target.value)}/>
-                    <input type="text" id="nombre" className="input font" placeholder="Nombre"  required onChange={(e) => setNombre(e.target.value)}/>
-                    <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno" required onChange={(e) => setApepat(e.target.value)}/>
-                    <input type="text" id="apemat" className="input font" placeholder="Apellido Materno"  required onChange={(e) => setApemat(e.target.value)}/>
-                    <select name="Carrera" id="carrera" className="input font" style={{'border-radius': '30px'}} required onChange={(e) => setCarrera(e.target.value)}>
+                    <input type="text" id="id" className="input font" placeholder="Matricula" required onChange={(e) => setMatricula(e.target.value)} />
+                    <input type="text" id="nombre" className="input font" placeholder="Nombre" required onChange={(e) => setNombre(e.target.value)} />
+                    <input type="text" id="apepat" className="input font" placeholder="Apellido Paterno" required onChange={(e) => setApepat(e.target.value)} />
+                    <input type="text" id="apemat" className="input font" placeholder="Apellido Materno" required onChange={(e) => setApemat(e.target.value)} />
+                    <select name="Carrera" id="carrera" className="input font" style={{ 'border-radius': '30px' }} required onChange={(e) => setCarrera(e.target.value)}>
                         <option value="Contaduria">Contaduria Publica</option>
                         <option value="Negocios">Negocios Internacionales</option>
                         <option value="Administracion">Administracion Turistica</option>
@@ -95,12 +97,12 @@ function Register() {
                         <option value="Eduacion">Eduacion</option>
                         <option value="Comunicacion">Comunicacion</option>
                     </select>
-                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional"  required onChange={(e) => setCorreo(e.target.value)}/>
-                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required onChange={(e) => setContrasenia(e.target.value)}/>
+                    <input type="text" id="correo" className="input font" placeholder="Correo Institucional" required onChange={(e) => setCorreo(e.target.value)} />
+                    <input type="password" className="input font" name="password" id="password" placeholder="Contraseña" required onChange={(e) => setContrasenia(e.target.value)} />
                     <button className="Entrar" type="submit">
                         Registrarse
                     </button>
-                    <button  className="button2" onClick={login}>
+                    <button className="button2" onClick={login}>
                         Login
                     </button>
                 </form>
