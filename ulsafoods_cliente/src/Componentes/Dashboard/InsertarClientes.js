@@ -41,9 +41,10 @@ const InsertarClientes = () => {
                         cliente.map(item => (
                             <tr key={item.id}>
                                 <td>{item.id}</td>
+                                <td>{item.matricula}</td>
                                 <td>{item.nombre}</td>
-                                <td>{item.paterno}</td>
-                                <td>{item.materno}</td>
+                                <td>{item.apepat}</td>
+                                <td>{item.apemat}</td>
                                 <td>{item.carrera}</td>
                                 <td>{item.contrasenia}</td>
                                 <td>{item.rol}</td>
