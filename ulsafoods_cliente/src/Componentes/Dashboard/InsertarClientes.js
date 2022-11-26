@@ -1,41 +1,54 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table,Container} from 'reactstrap';
+import { Table, Container } from 'reactstrap';
 
-const InsertarClientes= () => {
+const InsertarClientes = () => {
 
-    document.title="Clientes";
+    document.title = "Clientes";
 
-    /* state = {
-        data: data
-    } */
+    //  Variable para listar productos
+    const [cliente, setCliente] = React.useState([])
+
+    React.useEffect(() => {
+        obtenerDatos();
+    }, [])
+
+    // Metodo get de la api
+    const obtenerDatos = async () => {
+        const data = await fetch('http://localhost:9595/administrador/clientes/');
+        const clientes = await data.json();
+        setCliente(clientes);
+    }
+
     return (
         <div>
             <Container>
-                <button  className='dv'>Insertar una nuevo cliente</button>
-                <br/><br/>
+                <br /><br />
                 <Table striped bordered hover id="myTable">
-                    <thead>
+                    <thead className='t'>
                         <tr>
-                        <th></th>
-                        <th>Id</th>
-                        <th>Fecha</th>
-                        <th>Cafeter&iacute;a</th>
-                        <th>Cliente</th>
+                            <th>Id</th>
+                            <th>Matricula</th>
+                            <th>Nombre</th>
+                            <th>Paterno</th>
+                            <th>Materno</th>
+                            <th>Carrera</th>
+                            <th>Contraseña</th>
+                            <th>Rol</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {/* {this.state.data.map((elemento)=>(
-                            <tr>
-                                <td><input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="elegir" aria-label="..." /></td>
-                                <td>{elemento.id}</td>
-                                <td>{elemento.nombre}</td>
-                                <td>{elemento.cafeteria}</td>
-                                <td>{elemento.precio}</td>
-                                <td>{elemento.cantidad}</td>
-                                <td><Button color="danger">Eliminar</Button></td>
-                            </tr>
-                        ))} */}
+                    <tbody className='tb'>{
+                        cliente.map(item => (
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td>{item.nombre}</td>
+                                <td>{item.paterno}</td>
+                                <td>{item.materno}</td>
+                                <td>{item.carrera}</td>
+                                <td>{item.contrasenia}</td>
+                                <td>{item.rol}</td>
+
+                            </tr>))}
                     </tbody>
                 </Table>
             </Container>
