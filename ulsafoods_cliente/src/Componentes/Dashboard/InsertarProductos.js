@@ -301,7 +301,7 @@ const InsertarProductos = () => {
 
         Swal.fire({
 
-            title: 'Imagen del producto',
+           
             imageUrl: url_imag,
             showConfirmButton: false,
             
