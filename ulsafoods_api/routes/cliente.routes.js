@@ -11,6 +11,9 @@ module.exports = app => {
     // Encontrar cliente por id
     router.get("/cliente/:id", cliente.findOne); //http://localhost:9595/administrador/cliente/[id]
 
+    // Encontrar cliente por correo
+    router.get("/clientec/:correo", cliente.findOne); //http://localhost:9595/administrador/clientec/[correo]
+
     // Actualizar cliente por id
     router.put("/cliente/:id", cliente.update); //http://localhost:9595/administrador/cliente/[id]
 

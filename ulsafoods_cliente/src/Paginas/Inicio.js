@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 // Componente barra de navegación
@@ -148,6 +148,17 @@ function Page() {
 
 function Cart() {
 
+    const location = useLocation();
+
+    // Variable para listar cliente con id especifico
+    const [Cliente, setCliente] = React.useState([])
+
+    const obtenerDatos = async () => {
+        const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
+        const clientes = await data.json();
+        setCliente(clientes);
+    }
+    obtenerDatos();
 
 
     const {
@@ -181,30 +192,30 @@ function Cart() {
                             <Col>
                                 <Form.Group className="mb-3" controlId="formNombre">
                                     <Form.Label>Nombre</Form.Label>
-                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                    <Form.Control disabled value={Cliente.nombre} style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formPaterno">
                                     <Form.Label>Apellido Paterno</Form.Label>
-                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                    <Form.Control disabled value={Cliente.apepat} style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formMaterno">
                                     <Form.Label>Apellido Materno</Form.Label>
-                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                    <Form.Control disabled value={Cliente.apemat} style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
                             </Col>
 
                             <Col >
-                                <Form.Group className="mb-3" controlId="formNombre">
+                                <Form.Group className="mb-3" controlId="formCarrera">
                                     <Form.Label>Carrera</Form.Label>
-                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                    <Form.Control disabled value={Cliente.carrera} style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
-                                <Form.Group className="mb-3" controlId="formPaterno">
+                                <Form.Group className="mb-3" controlId="formCorreo">
                                     <Form.Label>Correo</Form.Label>
-                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                    <Form.Control disabled value={Cliente.correo} style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
-                                <Form.Group className="mb-3" controlId="formMaterno">
+                                <Form.Group className="mb-3" controlId="formMatricula">
                                     <Form.Label>Matrícula</Form.Label>
-                                    <Form.Control style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
+                                    <Form.Control disabled value={Cliente.matricula} style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
 
                                 <button style={{ width: '100%' }} className="Agregar_f" variant="success" type="submit" >
@@ -261,20 +272,29 @@ function Inicio() {
 
     const location = useLocation();
 
+    // Variable para listar cliente con id especifico
+    const [Cliente, setCliente] = React.useState([])
+
+    const obtenerDatos = async () => {
+        const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
+        const clientes = await data.json();
+        setCliente(clientes);
+    }
+    obtenerDatos();
 
     document.title = 'Inicio';
     return (
         <>
 
             <NavBar >
-            <span className='Identificador'>Bienvenido {location.state.correo} 👋</span>   
+                <span className='Identificador'>Bienvenido {Cliente.nombre} 👋</span>
                 <button onClick={() => setLgShow(true)} className="carrito">
                     <IconContext.Provider
                         value={{ color: 'white', size: '20px' }}>
                         <BsFillCartFill />
-                       
+
                     </IconContext.Provider>
-                    
+
                 </button>
             </NavBar >
 
