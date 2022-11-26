@@ -29,7 +29,7 @@ function Login() {
                     contrasenia: contrasenia
                 }),
             });
-            if (res.status === 200) {
+            if (res.status === 201) {
                 /*navigate('/Inicio');*/
                 navigate('/Inicio',{state:{correo:correo}});
 
@@ -43,13 +43,7 @@ function Login() {
                 })
                 console.log("ocurrio un error")
             }
-            if (res.status === 201) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Usuario creado con éxito',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
+            if (res.status === 200) {
                 navigate('/Dashboard/ventas');
             } 
         } catch (err) {
