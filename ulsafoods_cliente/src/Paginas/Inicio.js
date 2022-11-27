@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useLocation } from 'react-router-dom';
+import Swal from 'sweetalert2'
+
+
 
 
 // Componente barra de navegación
@@ -158,10 +161,10 @@ function Cart() {
         const clientes = await data.json();
         setCliente(clientes);
     }
-    
+
     React.useEffect(() => {
         obtenerDatos();
-    })
+    }, [])
 
 
     const {
@@ -177,7 +180,7 @@ function Cart() {
 
     // Mapeo para encontrar el total de todos los productos del carrito
     const Total = () => {
-    
+
         var contador = 0;
         items.map((item) => (
             contador = contador + (item.quantity * item.price)
@@ -222,14 +225,16 @@ function Cart() {
                                     <Form.Control disabled value={Cliente.matricula} style={{ height: '38px', margin: '0px', padding: '6px 12px' }} type="text" />
                                 </Form.Group>
 
-                                <button style={{ width: '100%' }} className="Agregar_f" variant="success" type="submit" >
-                                    Realizar pedido
-                                </button>
+
                             </Col>
                         </Row>
                     </Container>
                 </Form>
-                <h1>Total : $ {contador} MXN</h1>
+                <button onClick={Venta} style={{ width: '100%' }} className="Agregar_f"   >
+                    Realizar pedido
+                </button>
+                <br /><br />
+                <h1 id="Total" name={contador} >Total : $ {contador} MXN</h1>
             </>
         )
         // Renderizo el componente
@@ -242,6 +247,68 @@ function Cart() {
         root.render(element);
         // Le paso los parametros a renderizar
         root2.render(element2);
+    }
+
+    //Funcion para realizar la venta
+    const Venta = () => {
+
+        // Obtenemos el valor del id del cliente
+        const id_c = Cliente.id;
+        // Obtnemos el valor del total
+        const Total = document.getElementById("Total").getAttribute("name");
+        // Generamos valor de estatus
+        const estatus = "Procesando";
+        // Generamos el valor de la fecha
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '/' + mm + '/' + dd;
+
+
+
+        // Consumo de la api para metodo post y generar tabla venta
+        let venta = async () => {
+
+            try {
+                let res = await fetch('http://localhost:9595/administrador/venta', {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        id_cliente: id_c,
+                        fecha: today,
+                        monto_final: Total,
+                        estatus: estatus
+                    }),
+                });
+                if (res.status === 200) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Pedido generado con éxito',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    //limpiar variables
+                    //window.location.reload()
+                    //window.scrollTo(0, document.body.scrollHeight);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error al generar pedido',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    console.log("Ocurrio un error");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        venta();
     }
 
     return (
@@ -279,16 +346,19 @@ function Inicio() {
     // Variable para listar cliente con id especifico
     const [Cliente, setCliente] = React.useState([])
 
+ 
+
     const obtenerDatos = async () => {
-        const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
+       
+        const data = await fetch('http://localhost:9595/administrador/cliente/' +  location.state.correo);
         const clientes = await data.json();
         setCliente(clientes);
     }
 
     React.useEffect(() => {
-        obtenerDatos();
-    })
 
+        obtenerDatos();
+    }, [])
 
     document.title = 'Inicio';
     return (
