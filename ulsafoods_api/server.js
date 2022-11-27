@@ -40,6 +40,8 @@ db.sequelize.sync({ force: false }).then(() => {
 //require("./routes/usuario.routes")(app);
 require("./routes/producto.routes")(app);
 require("./routes/cliente.routes")(app);
+require("./routes/venta.routes")(app);
+require("./routes/venta_detalle.routes")(app);
 
 // asignar port para escuchar requests
 const PORT = process.env.PORT || 9595;
