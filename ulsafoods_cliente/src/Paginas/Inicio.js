@@ -422,15 +422,19 @@ function Inicio() {
 
 
             </NavBar >
-            <button className="Agregar" onClick={prueba}>Mis pedidos</button>  
+            <br/><br/>
 
             <Container>
+
 
                 <h2>¿Qué necesitas?</h2>
 
 
 
+
                 <CartProvider>
+                <button style={{textAlign:"center"}} className="Agregar" onClick={prueba}>Mis pedidos</button>  
+
                     <Page />
 
                 </CartProvider>
