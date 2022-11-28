@@ -408,7 +408,6 @@ function Inicio() {
 
     return (
         <>
-             <button onClick={prueba}>Prueba</button>  
             <NavBar >
            
                 <span className='Identificador'>Bienvenido {Cliente.nombre} 👋</span>
@@ -423,6 +422,7 @@ function Inicio() {
 
 
             </NavBar >
+            <button onClick={prueba}>Mis pedidos</button>  
 
             <Container>
 

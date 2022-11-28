@@ -25,9 +25,9 @@ function MisPedidos() {
             <NavBar >
             </NavBar >
             <Container>
-                <h2>Mis pedidos</h2>
+            <h2>Mis pedidos</h2>
                 {pedido.map((p) =>
-                    p.id_cliente === location.state.id
+                    p.id_cliente == location.state.id
                         ? <Toast key={p.id}>
                             <Toast.Header>
                                 <img src="" className="rounded me-2" alt="" />

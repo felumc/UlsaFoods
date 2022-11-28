@@ -15,7 +15,7 @@ function NavBar(props) {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="/Inicio">Inicio</Nav.Link>
-                            <Nav.Link href="/Mispedidos">Mis pedidos</Nav.Link>
+                            {/* <Nav.Link href="/Mispedidos">Mis pedidos</Nav.Link> */}
                         </Nav>
                         <Nav>
                             <Nav.Link>
