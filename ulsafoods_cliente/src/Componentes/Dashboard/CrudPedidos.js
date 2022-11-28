@@ -2,17 +2,39 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Container } from 'reactstrap';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
+
 
 const InsertarEmpleado = () => {
 
     document.title = "Pedidos";
 
+     // Obtenemos datos de los detalles
+     const [Detalles, setDetalles] = React.useState([])
+
+    //Recuperamos todos los detalles
+    const obtenerDetalles = async () => {
+        const data = await fetch('http://localhost:9595/administrador/det_ventas/');
+        const datos = await data.json();
+        setDetalles(datos);
+    }
+
+    React.useEffect(() => {
+        obtenerDetalles();
+    }, [])
+
     //Generar tabla
     const [pedido, setPedido] = React.useState([])
+
+   
 
     React.useEffect(() => {
         obtenerDatos();
     }, [])
+
+    // Mostrar-Ocultar Modal para ver detalles
+    const [lgShow, setLgShow] = useState(false);
 
     const obtenerDatos = async () => {
         const data = await fetch('http://localhost:9595/administrador/ventas/');
@@ -32,6 +54,7 @@ const InsertarEmpleado = () => {
         const foraneas = await data.json();
         setForanea(foraneas);
     }
+
 
 
     //Barra de busqueda
@@ -75,11 +98,41 @@ const InsertarEmpleado = () => {
         window.location.reload()
         window.scrollTo(0, document.body.scrollHeight);
     }
+
+    //Funcion para ver detalles
+    const detalles = event => {
+        const id_editar = event.currentTarget.id;
+
+
+
+
+
+
+        setLgShow(true);
+
+
+    }
     return (
         <div>
 
+            {/* Modal para editar */}
+            <Modal
+                size="lg"
+                show={lgShow}
+                onHide={() => setLgShow(false)}
+                aria-labelledby="example-modal-sizes-title-lg"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-modal-sizes-title-lg">
+                        Ver detelles
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body id='modal-body'>
+                    holi
+                </Modal.Body>
+            </Modal>
             <Container>
-                
+
 
                 <input type="text" id="myInput" onKeyUp={busqueda} placeholder="Buscar por el nombre del cliente" title="Type in a name" />
 
@@ -108,7 +161,10 @@ const InsertarEmpleado = () => {
                                     }
                                     <td>{item.fecha}</td>
                                     <td>{item.monto_final}</td>
-                                    <td><Button id={item.id} onClick={editar} className='CRUD' variant="success">Listo</Button></td>
+                                    <td>
+                                        <Button id={item.id} onClick={editar} className='CRUD' variant="warning" >Finalizar</Button>{'     '}
+                                        <Button id={item.id} onClick={detalles} className='CRUD' variant="primary">Ver detalles</Button>
+                                    </td>
                                 </tr>
                                 : <tr key={item.id}>
                                     <td>{item.id}</td>
@@ -121,7 +177,10 @@ const InsertarEmpleado = () => {
                                     }
                                     <td>{item.fecha}</td>
                                     <td>{item.monto_final}</td>
-                                    <td>{item.estatus}</td>
+                                    <td>
+                                        <Button variant="success" id={item.id} className='CRUD' disabled >{item.estatus}</Button>{'     '}
+                                        <Button id={item.id} onClick={detalles} className='CRUD' variant="primary">Ver detalles</Button>
+                                    </td>
                                 </tr>
                         ))}
                     </tbody>
