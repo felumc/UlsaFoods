@@ -17,7 +17,10 @@ module.exports = (sequelize, Sequelize) => {
         },
         url_imagen: {
             type: Sequelize.STRING
-        }
+        },
+        estado: {
+            type: Sequelize.STRING
+        },
     });
 
     return producto;

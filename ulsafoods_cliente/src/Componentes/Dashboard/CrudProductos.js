@@ -73,6 +73,7 @@ const InsertarProductos = () => {
                     cafeteria: cafeteria,
                     url_imagen: url,
                     categoria: categoria,
+                    estado:"Activo",
                     createdAt: '',
                     updatedAt: '',
                 }),
@@ -261,9 +262,7 @@ const InsertarProductos = () => {
     //  Variable para listar productos
     const [producto, setProducto] = React.useState([])
 
-    React.useEffect(() => {
-        obtenerDatos();
-    }, [])
+   
 
     // Metodo get de la api
     const obtenerDatos = async () => {
@@ -271,6 +270,10 @@ const InsertarProductos = () => {
         const productos = await data.json();
         setProducto(productos);
     }
+
+    React.useEffect(() => {
+        obtenerDatos();
+    }, [])
 
     //Barra de busqueda
     const busqueda = () => {

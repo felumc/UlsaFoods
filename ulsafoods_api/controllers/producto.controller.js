@@ -20,7 +20,8 @@ exports.create = (req, res) => {
         price: req.body.price,
         cafeteria:req.body.cafeteria,
         categoria:req.body.categoria,
-        url_imagen: req.body.url_imagen
+        url_imagen: req.body.url_imagen,
+        estado:req.body.estado,
     };
 
     // Guardar Producto en la base de datos

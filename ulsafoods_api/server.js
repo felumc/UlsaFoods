@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
 });
 
 const db = require("./models");
-db.sequelize.sync({ force: false }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
     console.log("Eliminar y sincronizar db");
 });
 
