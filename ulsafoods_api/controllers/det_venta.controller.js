@@ -6,7 +6,7 @@ var path = require('path');
 // Crear y Guardar una nueva Det_Venta
 exports.create = (req, res) => {
     // Validar request
-    if (!req.body.monto_final) {
+    if (!req.body.total_producto) {
         res.status(400).send({
             mensaje: "El contenido no puede ser vacio!"
         });

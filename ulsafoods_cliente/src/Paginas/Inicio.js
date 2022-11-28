@@ -151,10 +151,20 @@ function Page() {
 
 function Cart() {
 
+
+
     const location = useLocation();
 
     // Variable para listar cliente con id especifico
     const [Cliente, setCliente] = React.useState([])
+
+
+
+
+
+
+
+
 
     const obtenerDatos = async () => {
         const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
@@ -251,6 +261,7 @@ function Cart() {
 
     //Funcion para realizar la venta
     const Venta = () => {
+        var contador = 0;
 
         // Obtenemos el valor del id del cliente
         const id_c = Cliente.id;
@@ -265,12 +276,11 @@ function Cart() {
         var yyyy = today.getFullYear();
         today = yyyy + '/' + mm + '/' + dd;
 
-
-
         // Consumo de la api para metodo post y generar tabla venta
         let venta = async () => {
-
+            let final;
             try {
+
                 let res = await fetch('http://localhost:9595/administrador/venta', {
                     method: "POST",
                     headers: {
@@ -282,33 +292,66 @@ function Cart() {
                         fecha: today,
                         monto_final: Total,
                         estatus: estatus
-                    }),
-                });
-                if (res.status === 200) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Pedido generado con éxito',
-                        showConfirmButton: false,
-                        timer: 1500
                     })
-                    //limpiar variables
-                    //window.location.reload()
-                    //window.scrollTo(0, document.body.scrollHeight);
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error al generar pedido',
-                        showConfirmButton: false,
-                        timer: 1500
+                })
+                    .then(res => res.json())
+                    .then(data => final = data.id)
+
+                    .catch(err => {
+                        console.error(err);
                     })
-                    console.log("Ocurrio un error");
-                }
+
+                // Rellenado de detalle 
+
+                items.map((item) => (
+                    fetch('http://localhost:9595/administrador/det_venta', {  
+
+                        method: 'POST',
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            id_venta: final,
+                            id_producto: item.id,
+                            cantidad:  item.quantity,
+                            total_producto: item.quantity*item.price
+                        })
+
+                    })//,
+                    //Ignorar
+                    //alert("holi"),
+                    //contador = contador + item.id
+                ))
+
+                console.log(final);
+                console.log(contador)
+                console.log(items.length)
+
+
+                /*Swal.fire({
+                    icon: 'success',
+                    title: 'Pedido generado con éxito',
+                    showConfirmButton: false,
+                    timer: 1500
+                })*/
+
+                //limpiar variables
             } catch (err) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al generar pedido',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 console.log(err);
             }
+
+
         };
 
-        venta();
+        venta()
+
     }
 
     return (
@@ -346,11 +389,11 @@ function Inicio() {
     // Variable para listar cliente con id especifico
     const [Cliente, setCliente] = React.useState([])
 
- 
+
 
     const obtenerDatos = async () => {
-       
-        const data = await fetch('http://localhost:9595/administrador/cliente/' +  location.state.correo);
+
+        const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
         const clientes = await data.json();
         setCliente(clientes);
     }
