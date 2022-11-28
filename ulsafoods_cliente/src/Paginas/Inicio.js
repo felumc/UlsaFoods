@@ -422,7 +422,7 @@ function Inicio() {
 
 
             </NavBar >
-            <button onClick={prueba}>Mis pedidos</button>  
+            <button className="Agregar" onClick={prueba}>Mis pedidos</button>  
 
             <Container>
 
