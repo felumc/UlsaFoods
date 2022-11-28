@@ -397,14 +397,14 @@ function Inicio() {
 
     document.title = 'Inicio';
     const navigate = useNavigate();
-
+    const Clie = Cliente.id;
     const prueba = ()=>{
-        navigate('/MisPedidos',{state:{correo:"hola"}});
+        navigate('/MisPedidos',{state:{id:Clie}});
 
     }
     return (
         <>
-             <button onClick={prueba}>Prueba</button>
+             <button onClick={prueba}>Prueba</button> 
             <NavBar >
            
                 <span className='Identificador'>Bienvenido {Cliente.nombre} 👋</span>
