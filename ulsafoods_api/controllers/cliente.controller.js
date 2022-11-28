@@ -177,7 +177,9 @@ exports.login = (req, res) => {
 //Encontrar Cliente por correo
 exports.findOne = (req, res) => {
     const correo = req.params.correo;
-    Cliente.findOne(correo)
+    Cliente.findOne({ where: { correo: req.params.correo } })
+
+    //Cliente.findOne(correo)
         .then(cliente => {
             res.status(200).send(cliente);
         })

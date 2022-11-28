@@ -159,7 +159,7 @@ function Cart() {
     const [Cliente, setCliente] = React.useState([])
 
     const obtenerDatos = async () => {
-        const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
+        const data = await fetch('http://localhost:9595/administrador/clientec/' + location.state.correo);
         const clientes = await data.json();
         setCliente(clientes);
     }
@@ -182,7 +182,7 @@ function Cart() {
 
     // Mapeo para encontrar el total de todos los productos del carrito
     const Total = () => {
-
+        
         var contador = 0;
         items.map((item) => (
             contador = contador + (item.quantity * item.price)
@@ -385,7 +385,7 @@ function Inicio() {
 
     const obtenerDatos = async () => {
 
-        const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
+        const data = await fetch('http://localhost:9595/administrador/clientec/' + location.state.correo);
         const clientes = await data.json();
         setCliente(clientes);
     }
@@ -402,9 +402,13 @@ function Inicio() {
         navigate('/MisPedidos',{state:{id:Clie}});
 
     }
+    console.log(Cliente.nombre);
+    console.log(Cliente.matricula);
+
+
     return (
         <>
-             <button onClick={prueba}>Prueba</button> 
+             <button onClick={prueba}>Prueba</button>  
             <NavBar >
            
                 <span className='Identificador'>Bienvenido {Cliente.nombre} 👋</span>
