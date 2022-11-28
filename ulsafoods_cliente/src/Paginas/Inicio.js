@@ -5,10 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2'
-
-
-
-
 // Componente barra de navegación
 import { NavBar } from '../Componentes/Inicio/NavBar';
 
