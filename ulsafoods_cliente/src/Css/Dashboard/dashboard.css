@@ -27,3 +27,10 @@
   .tb{
     background-color: rgb(250, 248, 248);
   }
+
+  #Ped{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+}
+  

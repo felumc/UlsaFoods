@@ -2,16 +2,30 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Container } from 'reactstrap';
 import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
+import Card from 'react-bootstrap/Card';
 
+import * as ReactDOM from 'react-dom/client';
 
-const InsertarEmpleado = () => {
+const CrudPedidos = () => {
 
     document.title = "Pedidos";
+    // Obtenemos datos de los productos
+    const [Productos, setProductos] = React.useState([])
 
-     // Obtenemos datos de los detalles
-     const [Detalles, setDetalles] = React.useState([])
+    //Recuperamos todos los productos
+    const obtenerProductos = async () => {
+        const data = await fetch('http://localhost:9595/administrador/productos/');
+        const datos = await data.json();
+        setProductos(datos);
+    }
+
+    React.useEffect(() => {
+        obtenerProductos();
+    }, [])
+
+
+    // Obtenemos datos de los detalles
+    const [Detalles, setDetalles] = React.useState([])
 
     //Recuperamos todos los detalles
     const obtenerDetalles = async () => {
@@ -27,14 +41,13 @@ const InsertarEmpleado = () => {
     //Generar tabla
     const [pedido, setPedido] = React.useState([])
 
-   
+
 
     React.useEffect(() => {
         obtenerDatos();
     }, [])
 
-    // Mostrar-Ocultar Modal para ver detalles
-    const [lgShow, setLgShow] = useState(false);
+
 
     const obtenerDatos = async () => {
         const data = await fetch('http://localhost:9595/administrador/ventas/');
@@ -101,37 +114,52 @@ const InsertarEmpleado = () => {
 
     //Funcion para ver detalles
     const detalles = event => {
-        const id_editar = event.currentTarget.id;
 
+        const id_detalles = event.currentTarget.id;
 
+        const root = ReactDOM.createRoot(document.getElementById('container'));
 
+        const element = (
+            <div id="Ped">{
+                Detalles.map(item => (
 
+                    item.id_venta == id_detalles
+                        ? <div>
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Body>
+                                    <Card.Title>ID del detalle {item.id}</Card.Title>
+                                    <Card.Subtitle className="mb-2 text-muted">ID de la venta {item.id_venta}</Card.Subtitle>
+                                    <Card.Text>
+                                        {
+                                            Productos.map(items => (
+                                                items.id == item.id_producto
+                                                    ? <p>Nombre del producto : {items.nombre}</p>
+                                                    : null
+                                            ))}
 
+                                        <p>Cantidad : {item.cantidad}</p>
+                                        <p>Número de productos: {item.total_producto}</p>
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
 
-        setLgShow(true);
+                        </div>
+                        : null
 
+                ))
+            }
 
+            </div>
+        )
+
+        root.render(element);
     }
+
     return (
         <div>
 
-            {/* Modal para editar */}
-            <Modal
-                size="lg"
-                show={lgShow}
-                onHide={() => setLgShow(false)}
-                aria-labelledby="example-modal-sizes-title-lg"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-modal-sizes-title-lg">
-                        Ver detelles
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body id='modal-body'>
-                    holi
-                </Modal.Body>
-            </Modal>
-            <Container>
+
+            <Container id='container'>
 
 
                 <input type="text" id="myInput" onKeyUp={busqueda} placeholder="Buscar por el nombre del cliente" title="Type in a name" />
@@ -160,7 +188,7 @@ const InsertarEmpleado = () => {
                                         ))
                                     }
                                     <td>{item.fecha}</td>
-                                    <td>{item.monto_final}</td>
+                                    <td>$ {item.monto_final} MXN</td>
                                     <td>
                                         <Button id={item.id} onClick={editar} className='CRUD' variant="warning" >Finalizar</Button>{'     '}
                                         <Button id={item.id} onClick={detalles} className='CRUD' variant="primary">Ver detalles</Button>
@@ -176,7 +204,7 @@ const InsertarEmpleado = () => {
                                         ))
                                     }
                                     <td>{item.fecha}</td>
-                                    <td>{item.monto_final}</td>
+                                    <td>$ {item.monto_final} MXN</td>
                                     <td>
                                         <Button variant="success" id={item.id} className='CRUD' disabled >{item.estatus}</Button>{'     '}
                                         <Button id={item.id} onClick={detalles} className='CRUD' variant="primary">Ver detalles</Button>
@@ -190,4 +218,4 @@ const InsertarEmpleado = () => {
     );
 };
 
-export default InsertarEmpleado;
+export default CrudPedidos;
