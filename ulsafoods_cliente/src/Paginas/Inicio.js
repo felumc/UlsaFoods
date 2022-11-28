@@ -325,12 +325,12 @@ function Cart() {
                 console.log(items.length)
 
 
-                /*Swal.fire({
+                Swal.fire({
                     icon: 'success',
                     title: 'Pedido generado con éxito',
                     showConfirmButton: false,
                     timer: 1500
-                })*/
+                })
 
                 //limpiar variables
             } catch (err) {

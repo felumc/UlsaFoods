@@ -295,16 +295,16 @@ const InsertarProductos = () => {
     }
 
     // Función para refactorizar
-    const Mostrar = event =>{
-        
+    const Mostrar = event => {
+
         const url_imag = event.currentTarget.id;
 
         Swal.fire({
 
-           
+
             imageUrl: url_imag,
             showConfirmButton: false,
-            
+
         })
 
 
@@ -312,7 +312,7 @@ const InsertarProductos = () => {
 
     return (
         <div>
-             
+
 
             {/* Modal para editar */}
             <Modal
@@ -358,11 +358,23 @@ const InsertarProductos = () => {
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicCategoria">
                                         <Form.Label>Categoria</Form.Label>
-                                        <Form.Control type="text" Value={EditProducto.categoria} onChange={(e) => setCategoria(e.target.value)} />
+                                        <Form.Select value={EditProducto.categoria} onChange={(e) => setCategoria(e.target.value)}>
+                                            <option>Selecciona una categoría</option>
+                                            <option>Cafe</option>
+                                            <option>Refresco</option>
+                                            <option>Sabritas</option>
+                                            <option>Hamburguesa</option>
+                                            <option>Pastel</option>
+                                            <option>Baguette</option>
+                                        </Form.Select>
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicCafeteria">
                                         <Form.Label>Cafetería</Form.Label>
-                                        <Form.Control type="text" Value={EditProducto.cafeteria} onChange={(e) => setCafeteria(e.target.value)} />
+                                        <Form.Select  value={EditProducto.cafeteria} onChange={(e) => setCafeteria(e.target.value)}>
+                                            <option>Selecciona la cafeteria</option>
+                                            <option>Raíz</option>
+                                            <option>Principal</option>
+                                        </Form.Select>
                                     </Form.Group>
                                     <Button style={{ width: "100%" }} className="dv" type="submit" onClick={valida}>
                                         Editar
@@ -404,9 +416,9 @@ const InsertarProductos = () => {
                                     <Form.Label>Stock</Form.Label>
                                     <Form.Control type="number" placeholder="Ingresa el stock" onChange={(e) => setStock(e.target.value)} />
                                 </Form.Group>
-                                <Button style={{ width: "100%" }} className="dv" type="submit" >
+                                <button style={{ width: "100%" }} className="dv" type="submit" >
                                     Agregar
-                                </Button>
+                                </button>
                             </Col>
                             <Col>
                                 <Form.Group className="mb-3" controlId="formBasicPrecio">
@@ -415,11 +427,23 @@ const InsertarProductos = () => {
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicCategoria">
                                     <Form.Label>Categoria</Form.Label>
-                                    <Form.Control type="text" placeholder="Ingresa la categoria" onChange={(e) => setCategoria(e.target.value)} />
+                                    <Form.Select required onChange={(e) => setCategoria(e.target.value)}>
+                                        <option>Selecciona una categoría</option>
+                                        <option>Cafe</option>
+                                        <option>Refresco</option>
+                                        <option>Sabritas</option>
+                                        <option>Hamburguesa</option>
+                                        <option>Pastel</option>
+                                        <option>Baguette</option>
+                                    </Form.Select>
                                 </Form.Group>
                                 <Form.Group className="mb-3" controlId="formBasicCafeteria">
                                     <Form.Label>Cafeteria</Form.Label>
-                                    <Form.Control type="text" placeholder="Ingresa la cafeteria" onChange={(e) => setCafeteria(e.target.value)} />
+                                    <Form.Select required onChange={(e) => setCafeteria(e.target.value)}>
+                                        <option>Selecciona la cafeteria</option>
+                                        <option>Raíz</option>
+                                        <option>Principal</option>
+                                    </Form.Select>
                                 </Form.Group>
 
                             </Col>

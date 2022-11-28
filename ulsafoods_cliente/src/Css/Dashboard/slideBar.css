@@ -64,5 +64,7 @@ a {
     height: 40px;
     width: 100px;
   }
-
+  .dv:visited{
+    background-color: #A27B5C;
+}
   
