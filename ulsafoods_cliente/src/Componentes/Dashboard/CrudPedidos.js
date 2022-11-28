@@ -133,7 +133,11 @@ const CrudPedidos = () => {
                                         {
                                             Productos.map(items => (
                                                 items.id == item.id_producto
-                                                    ? <p>Nombre del producto : {items.nombre}</p>
+                                                    ?<div>
+                                                        <p>Nombre del producto : {items.nombre}</p>
+                                                        <Card.Img variant="top" src={items.url_imagen} />
+                                                     </div>
+                                                       
                                                     : null
                                             ))}
 
