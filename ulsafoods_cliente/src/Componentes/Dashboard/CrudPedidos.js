@@ -1,10 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Table, Container } from 'reactstrap';
+import { Table, Container, Alert } from 'reactstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 import * as ReactDOM from 'react-dom/client';
+import { useNavigate } from 'react-router-dom';
 
 const CrudPedidos = () => {
 
@@ -68,7 +69,7 @@ const CrudPedidos = () => {
         setForanea(foraneas);
     }
 
-
+    const navigate = useNavigate();
 
     //Barra de busqueda
 
@@ -111,6 +112,12 @@ const CrudPedidos = () => {
         window.location.reload()
         window.scrollTo(0, document.body.scrollHeight);
     }
+    const moverse = () =>{
+       
+
+        window.location.reload()
+
+    }
 
     //Funcion para ver detalles
     const detalles = event => {
@@ -121,7 +128,7 @@ const CrudPedidos = () => {
 
         const element = (
             <>
-                <button href='Dashboard/pedidos' className='dv'>Regresar</button>
+                <button onClick={moverse} className='dv'>Regresar</button>
                 <br/><br/>
 
                 <div id="Ped">{
