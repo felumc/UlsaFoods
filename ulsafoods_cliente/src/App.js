@@ -3,6 +3,8 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 import Inicio from './Paginas/Inicio';
+import MisPedios from './Paginas/MisPedidos';
+
 import LoginPage from './Paginas/LoginPage';
 import RegisterPage from './Paginas/RegisterPage';
 //Rutas Dashboard
@@ -23,6 +25,8 @@ function App() {
         <Route path="/Dashboard/productos" element={<Productos />} />
         <Route path="/Dashboard/pedidos" element={<Pedidos />} />
         <Route path="/Dashboard/administrador" element={<Administrador />} />
+        <Route path="/MisPedidos" element={<MisPedios />} />
+
       </Routes>
     </>
 

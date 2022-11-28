@@ -3,6 +3,8 @@ import * as ReactDOM from 'react-dom/client';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {Link} from 'react-router-dom';
+
 import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2'
 // Componente barra de navegación
@@ -26,6 +28,7 @@ import { GiHamburger } from "react-icons/gi";
 import { GiCakeSlice } from "react-icons/gi";
 import { GiSandwich } from "react-icons/gi";
 
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -154,14 +157,6 @@ function Cart() {
 
     // Variable para listar cliente con id especifico
     const [Cliente, setCliente] = React.useState([])
-
-
-
-
-
-
-
-
 
     const obtenerDatos = async () => {
         const data = await fetch('http://localhost:9595/administrador/cliente/' + location.state.correo);
@@ -401,10 +396,17 @@ function Inicio() {
     }, [])
 
     document.title = 'Inicio';
+    const navigate = useNavigate();
+
+    const prueba = ()=>{
+        navigate('/MisPedidos',{state:{correo:"hola"}});
+
+    }
     return (
         <>
-
+             <button onClick={prueba}>Prueba</button>
             <NavBar >
+           
                 <span className='Identificador'>Bienvenido {Cliente.nombre} 👋</span>
                 <button onClick={() => setLgShow(true)} className="carrito">
                     <IconContext.Provider
@@ -414,6 +416,8 @@ function Inicio() {
                     </IconContext.Provider>
 
                 </button>
+
+
             </NavBar >
 
             <Container>
