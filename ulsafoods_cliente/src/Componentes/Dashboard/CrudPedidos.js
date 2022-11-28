@@ -120,40 +120,45 @@ const CrudPedidos = () => {
         const root = ReactDOM.createRoot(document.getElementById('container'));
 
         const element = (
-            <div id="Ped">{
-                Detalles.map(item => (
+            <>
+                <button className='dv'>Regressar</button>
 
-                    item.id_venta == id_detalles
-                        ? <div>
-                            <Card style={{ width: '18rem' }}>
-                                <Card.Body>
-                                    <Card.Title>ID del detalle {item.id}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">ID de la venta {item.id_venta}</Card.Subtitle>
-                                    <Card.Text>
-                                        {
-                                            Productos.map(items => (
-                                                items.id == item.id_producto
-                                                    ?<div>
-                                                        <p>Nombre del producto : {items.nombre}</p>
-                                                        <Card.Img variant="top" src={items.url_imagen} />
-                                                     </div>
-                                                       
-                                                    : null
-                                            ))}
+                <div id="Ped">{
 
-                                        <p>Cantidad : {item.cantidad}</p>
-                                        <p>Número de productos: {item.total_producto}</p>
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
+                    Detalles.map(item => (
 
-                        </div>
-                        : null
+                        item.id_venta == id_detalles
+                            ? <div>
+                                <Card style={{ width: '18rem' }}>
+                                    <Card.Body>
+                                        <Card.Title>ID del detalle {item.id}</Card.Title>
+                                        <Card.Subtitle className="mb-2 text-muted">ID de la venta {item.id_venta}</Card.Subtitle>
+                                        <Card.Text>
+                                            {
+                                                Productos.map(items => (
+                                                    items.id == item.id_producto
+                                                        ? <div>
+                                                            <p>Nombre del producto : {items.nombre}</p>
+                                                            <Card.Img variant="top" src={items.url_imagen} />
+                                                        </div>
 
-                ))
-            }
+                                                        : null
+                                                ))}
 
-            </div>
+                                            <p>Cantidad : {item.cantidad}</p>
+                                            <p>Total : $ {item.total_producto} MXN</p>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+
+                            </div>
+                            : null
+
+                    ))
+                }
+
+                </div>
+            </>
         )
 
         root.render(element);
