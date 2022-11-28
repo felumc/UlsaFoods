@@ -69,7 +69,7 @@ function Page() {
         const element = (
             <CartProvider>
                 {producto.map((p) => (
-                    p.categoria === categoria
+                    p.categoria === categoria && p.estado === "Activo"
                         ? (<CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
                             <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
                         </CardProd>)
@@ -135,10 +135,11 @@ function Page() {
             <br /><br />
             <div id="row" className="row">
                 {producto.map((p) => (
-
-                    <CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
-                        <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
-                    </CardProd>
+                    p.estado === "Activo"
+                        ? <CardProd key={p.id} id={p.id} url_imagen={p.url_imagen} nombre={p.nombre} stock={p.stock} cafeteria={p.cafeteria} precio={p.price}>
+                            <button onClick={() => addItem(p)} className="Agregar">Añadir a carrito</button>
+                        </CardProd>
+                        : null
                 ))}
             </div>
         </>
@@ -300,7 +301,7 @@ function Cart() {
                 // Rellenado de detalle 
 
                 items.map((item) => (
-                    fetch('http://localhost:9595/administrador/det_venta', {  
+                    fetch('http://localhost:9595/administrador/det_venta', {
 
                         method: 'POST',
                         headers: {
@@ -310,8 +311,8 @@ function Cart() {
                         body: JSON.stringify({
                             id_venta: final,
                             id_producto: item.id,
-                            cantidad:  item.quantity,
-                            total_producto: item.quantity*item.price
+                            cantidad: item.quantity,
+                            total_producto: item.quantity * item.price
                         })
 
                     })//,

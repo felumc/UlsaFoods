@@ -73,7 +73,7 @@ const InsertarProductos = () => {
                     cafeteria: cafeteria,
                     url_imagen: url,
                     categoria: categoria,
-                    estado:"Activo",
+                    estado: "Activo",
                     createdAt: '',
                     updatedAt: '',
                 }),
@@ -262,7 +262,7 @@ const InsertarProductos = () => {
     //  Variable para listar productos
     const [producto, setProducto] = React.useState([])
 
-   
+
 
     // Metodo get de la api
     const obtenerDatos = async () => {
@@ -313,9 +313,40 @@ const InsertarProductos = () => {
 
     }
 
-const Activar = () =>{
-    alert("Hola");
-}
+    const Activar = event => {
+        const id_editar = event.currentTarget.id;
+        fetch('http://localhost:9595/administrador/producto/' + id_editar, {
+
+            method: 'PUT',
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                estado: "Activo"
+            })
+        })
+        window.location.reload()
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    
+    const Desactivar = event => {
+        const id_editar = event.currentTarget.id;
+        fetch('http://localhost:9595/administrador/producto/' + id_editar, {
+
+            method: 'PUT',
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                estado: "Inactivo"
+            })
+        })
+        window.location.reload()
+        window.scrollTo(0, document.body.scrollHeight);
+    }
     return (
         <div>
 
@@ -376,7 +407,7 @@ const Activar = () =>{
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicCafeteria">
                                         <Form.Label>Cafetería</Form.Label>
-                                        <Form.Select  value={EditProducto.cafeteria} onChange={(e) => setCafeteria(e.target.value)}>
+                                        <Form.Select value={EditProducto.cafeteria} onChange={(e) => setCafeteria(e.target.value)}>
                                             <option>Selecciona la cafeteria</option>
                                             <option>Raíz</option>
                                             <option>Principal</option>
@@ -480,20 +511,37 @@ const Activar = () =>{
                     </thead>
                     <tbody className='tb'>{
                         producto.map(item => (
-                            <tr key={item.id}>
-                                <td>{item.id}</td>
-                                <td>{item.nombre}</td>
-                                <td>{item.price}</td>
-                                <td>{item.stock}</td>
-                                <td>{item.categoria}</td>
-                                <td>{item.cafeteria}</td>
-                                <td>
-                                    <Button id={item.id} onClick={Editar} className='CRUD' variant="primary">Editar</Button>{'     '}
-                                    <Button id={item.id} onClick={Eliminar} className='CRUD' variant="danger">Eliminar</Button>{'    '}
-                                    <Button id={item.url_imagen} onClick={Mostrar} className='CRUD' variant="warning">Ver imagen</Button>{'    '}
-                                    <Button id={item.id}  onClick={Activar} className='CRUD' variant="light">Activar</Button>{'    '}
-                                </td>
-                            </tr>))}
+                            item.estado === "Activo"
+                                ? <tr key={item.id}>
+                                    <td>{item.id}</td>
+                                    <td>{item.nombre}</td>
+                                    <td>{item.price}</td>
+                                    <td>{item.stock}</td>
+                                    <td>{item.categoria}</td>
+                                    <td>{item.cafeteria}</td>
+                                    <td>
+                                        <Button id={item.id} onClick={Editar} className='CRUD' variant="primary">Editar</Button>{'     '}
+                                        <Button id={item.id} onClick={Eliminar} className='CRUD' variant="danger">Eliminar</Button>{'    '}
+                                        <Button id={item.url_imagen} onClick={Mostrar} className='CRUD' variant="warning">Ver imagen</Button>{'    '}
+                                        <Button id={item.id} onClick={Desactivar} className='CRUD' variant="dark">Desactivar</Button>{'    '}
+                                    </td>
+                                </tr>
+                                : <tr key={item.id}>
+                                    <td>{item.id}</td>
+                                    <td>{item.nombre}</td>
+                                    <td>{item.price}</td>
+                                    <td>{item.stock}</td>
+                                    <td>{item.categoria}</td>
+                                    <td>{item.cafeteria}</td>
+                                    <td>
+                                        <Button id={item.id} onClick={Editar} className='CRUD' variant="primary">Editar</Button>{'     '}
+                                        <Button id={item.id} onClick={Eliminar} className='CRUD' variant="danger">Eliminar</Button>{'    '}
+                                        <Button id={item.url_imagen} onClick={Mostrar} className='CRUD' variant="warning">Ver imagen</Button>{'    '}
+                                        <Button id={item.id} onClick={Activar} className='CRUD' variant="light">Activar</Button>{'    '}
+                                    </td>
+                                </tr>
+
+                        ))}
                     </tbody>
                 </Table>
             </Container>
