@@ -67,4 +67,9 @@ a {
   .dv:visited{
     background-color: #A27B5C;
 }
+::-ms-reveal {
+    color: #3F4E4F;
+    position: absolute;
+    left: 730px;
+  }
   

@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Container } from 'reactstrap';
 
-const InsertarClientes = () => {
+const CrudClientes = () => {
 
     document.title = "Clientes";
 
@@ -57,6 +57,7 @@ const InsertarClientes = () => {
                             <th>Paterno</th>
                             <th>Materno</th>
                             <th>Carrera</th>
+                            <th>Correo</th>
                             <th>Contraseña</th>
                         </tr>
                     </thead>
@@ -70,6 +71,7 @@ const InsertarClientes = () => {
                                     <td>{item.apepat}</td>
                                     <td>{item.apemat}</td>
                                     <td>{item.carrera}</td>
+                                    <td>{item.correo}</td>
                                     <td>{item.contrasenia}</td>
 
                                 </tr>
@@ -83,4 +85,4 @@ const InsertarClientes = () => {
     );
 };
 
-export default InsertarClientes;
+export default CrudClientes;

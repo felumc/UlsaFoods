@@ -9,6 +9,8 @@ import RegisterPage from './Paginas/RegisterPage';
 import Productos from '../src/Paginas/Dashboard/Productos';
 import Clientes from '../src/Paginas/Dashboard/Clientes';
 import Pedidos from './Paginas/Dashboard/Pedidos';
+import Administrador from './Paginas/Dashboard/Administrador';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/Dashboard/clientes" element={<Clientes />} />
         <Route path="/Dashboard/productos" element={<Productos />} />
         <Route path="/Dashboard/pedidos" element={<Pedidos />} />
+        <Route path="/Dashboard/administrador" element={<Administrador />} />
       </Routes>
     </>
 
