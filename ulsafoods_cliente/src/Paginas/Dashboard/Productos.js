@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../Componentes/Dashboard/NavbarDashboard';
 import SlideBar from '../../Componentes/Dashboard/SlideBar';
-import InsertarProductos from '../../Componentes/Dashboard/InsertarProductos';
+import CrudProductos from '../../Componentes/Dashboard/CrudProductos';
 import '../../Css/Dashboard/dashboard.css'
 
 
@@ -14,7 +14,7 @@ const Productos = () => {
                 <SlideBar />
             </div>
             <div className='content'>
-                <InsertarProductos />
+                <CrudProductos />
             </div>
             
         </div>

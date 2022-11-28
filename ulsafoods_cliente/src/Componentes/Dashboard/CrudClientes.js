@@ -34,12 +34,12 @@ const InsertarClientes = () => {
                             <th>Materno</th>
                             <th>Carrera</th>
                             <th>Contraseña</th>
-                            <th>Rol</th>
                         </tr>
                     </thead>
                     <tbody className='tb'>{
                         cliente.map(item => (
-                            <tr key={item.id}>
+                            item.rol === "Usuario"
+                            ?<tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.matricula}</td>
                                 <td>{item.nombre}</td>
@@ -47,9 +47,11 @@ const InsertarClientes = () => {
                                 <td>{item.apemat}</td>
                                 <td>{item.carrera}</td>
                                 <td>{item.contrasenia}</td>
-                                <td>{item.rol}</td>
 
-                            </tr>))}
+                            </tr>
+                            :null
+                            
+                            ))}
                     </tbody>
                 </Table>
             </Container>

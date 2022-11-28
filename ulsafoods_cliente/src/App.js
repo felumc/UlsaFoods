@@ -8,8 +8,7 @@ import RegisterPage from './Paginas/RegisterPage';
 //Rutas Dashboard
 import Productos from '../src/Paginas/Dashboard/Productos';
 import Clientes from '../src/Paginas/Dashboard/Clientes';
-import Reportes from '../src/Componentes/Dashboard/Reportes';
-import Empleados from './Paginas/Dashboard/Empleados';
+import Pedidos from './Paginas/Dashboard/Pedidos';
 
 function App() {
   return (
@@ -20,8 +19,7 @@ function App() {
         <Route path="/Inicio" element={<Inicio />} />
         <Route path="/Dashboard/clientes" element={<Clientes />} />
         <Route path="/Dashboard/productos" element={<Productos />} />
-        <Route path="/Dashboard/empleados" element={<Empleados />} />
-        <Route path="/Dashboard/reportes" element={<Reportes />} />
+        <Route path="/Dashboard/pedidos" element={<Pedidos />} />
       </Routes>
     </>
 

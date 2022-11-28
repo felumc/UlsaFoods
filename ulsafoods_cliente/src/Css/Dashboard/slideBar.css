@@ -1,8 +1,15 @@
 .slidebar {
+    
+  
     width: 14rem;
     height: calc(100vh - 52px);
     border-right: 1px solid #c4ccde;
     background-color: #2C3639;
+
+   
+
+
+
 }
 
 ul {

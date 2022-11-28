@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../Componentes/Dashboard/NavbarDashboard';
 import SlideBar from '../../Componentes/Dashboard/SlideBar';
-import InsertarClientes from '../../Componentes/Dashboard/InsertarClientes';
+import CrudClientes from '../../Componentes/Dashboard/CrudClientes';
 import '../../Css/Dashboard/dashboard.css'
 
 const Clientes = () => {
@@ -12,7 +12,7 @@ const Clientes = () => {
                 <SlideBar />
             </div>
             <div className='content'>
-                <InsertarClientes />
+                <CrudClientes />
             </div>
         </div>
     );
