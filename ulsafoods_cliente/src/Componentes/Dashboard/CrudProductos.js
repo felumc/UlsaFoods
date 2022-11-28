@@ -313,6 +313,9 @@ const InsertarProductos = () => {
 
     }
 
+const Activar = () =>{
+    alert("Hola");
+}
     return (
         <div>
 
@@ -488,6 +491,7 @@ const InsertarProductos = () => {
                                     <Button id={item.id} onClick={Editar} className='CRUD' variant="primary">Editar</Button>{'     '}
                                     <Button id={item.id} onClick={Eliminar} className='CRUD' variant="danger">Eliminar</Button>{'    '}
                                     <Button id={item.url_imagen} onClick={Mostrar} className='CRUD' variant="warning">Ver imagen</Button>{'    '}
+                                    <Button id={item.id}  onClick={Activar} className='CRUD' variant="light">Activar</Button>{'    '}
                                 </td>
                             </tr>))}
                     </tbody>
