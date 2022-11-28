@@ -121,7 +121,8 @@ const CrudPedidos = () => {
 
         const element = (
             <>
-                <button className='dv'>Regressar</button>
+                <button className='dv'>Regresar</button>
+                <br/><br/>
 
                 <div id="Ped">{
 
