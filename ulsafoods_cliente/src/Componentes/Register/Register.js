@@ -20,7 +20,7 @@ function Register() {
     const [correo, setCorreo] = useState("");
     const [contrasenia, setContrasenia] = useState("");
 
-
+    // Consumo de api
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -50,7 +50,7 @@ function Register() {
                 })
                 navigate('/');
             }
-           else {
+            else {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error al crear usuario',
@@ -63,6 +63,7 @@ function Register() {
             console.log(err);
         }
     };
+    // Componente html
     return (
         <div className="CuadroLoginR">
             <div className="IzquierdaR">

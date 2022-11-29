@@ -1,3 +1,4 @@
+// Importación de componentes y librerias
 import logo from '../images/logo2.png';
 import burger from '../images/burger.jpg';
 import { useState } from 'react';
@@ -6,15 +7,18 @@ import Swal from 'sweetalert2'
 
 function Login() {
 
+    // Función para mandar a pagina de registro
     const register = () => {
         navigate('/Register');
     };
+
     const navigate = useNavigate();
 
-    // Envio de formulario
+    // Variables para enviar datos a api
     const [correo, setCorreo] = useState("");
     const [contrasenia, setContrasenia] = useState("");
 
+    // Metodo post a api rest
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -30,8 +34,8 @@ function Login() {
                 }),
             });
             if (res.status === 201) {
-                /*navigate('/Inicio');*/
-                navigate('/Inicio',{state:{correo:correo}});
+                // En caso del login ser correcto regresa un estatus 201 y manda al inicio
+                navigate('/Inicio', { state: { correo: correo } });
 
             }
             if (res.status === 400) {
@@ -43,16 +47,18 @@ function Login() {
                 })
                 console.log("ocurrio un error")
             }
+            // Validacion en caso de ser un administrador
             if (res.status === 200) {
                 navigate('/Dashboard/productos');
-            } 
+            }
         } catch (err) {
             console.log(err);
-           
+
         }
     };
 
     return (
+        // Componente html del formulario
         <div className="CuadroLogin">
             <div className="Izquierda">
                 <a href="/#"><img src={burger} alt="Logo" /></a>
