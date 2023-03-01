@@ -6,46 +6,47 @@ var path = require('path');
 // Crear y Guardar un nuevo Cliente
 exports.create = (req, res) => {
     Cliente.findOne({ where: { correo: req.body.correo } })
-      .then(cliente => {
-        // Validar request
-        if (cliente) {
-          res.status(400).send({
-            mensaje: "Correo existente"
-          });
-          return;
-        } else {
-          
-          const cliente = {
-            matricula: req.body.matricula,
-            nombre: req.body.nombre,
-            apepat: req.body.apepat,
-            apemat: req.body.apemat,
-            carrera: req.body.carrera,
-            correo: req.body.correo,
-            contrasenia: req.body.contrasenia,
-        };
-  
-          // Guardar Cliente en la base de datos
-          Cliente.create(cliente)
-            .then(cliente => {
-                res.status(200).send(cliente);
-            })
-            .catch(err => {
-                // res.status(500).send({
-                //     mensaje:
-                //         err.message || "Ocurrio un error al crear Cliente."
-                // });
-                res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
-            });
-        }
-      })
-      .catch(err => {
-        // res.status(500).send({
-        //   mensaje: "Error al recuperar Usuario por correo"
-        // });
-        res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
-      });
-  };
+        .then(cliente => {
+            // Validar request
+            if (cliente) {
+                res.status(400).send({
+                    mensaje: "Correo existente"
+                });
+                return;
+            } else {
+
+                const cliente = {
+                    matricula: req.body.matricula,
+                    nombre: req.body.nombre,
+                    apepat: req.body.apepat,
+                    apemat: req.body.apemat,
+                    carrera: req.body.carrera,
+                    correo: req.body.correo,
+                    contrasenia: req.body.contrasenia,
+                    rol:req.body.rol
+                };
+
+                // Guardar Cliente en la base de datos
+                Cliente.create(cliente)
+                    .then(cliente => {
+                        res.status(200).send(cliente);
+                    })
+                    .catch(err => {
+                        // res.status(500).send({
+                        //     mensaje:
+                        //         err.message || "Ocurrio un error al crear Cliente."
+                        // });
+                        res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
+                    });
+            }
+        })
+        .catch(err => {
+            // res.status(500).send({
+            //   mensaje: "Error al recuperar Usuario por correo"
+            // });
+            res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
+        });
+};
 
 // Recuperar todos los Clientes de la base de datos
 exports.findAll = (req, res) => {
@@ -147,21 +148,44 @@ exports.deleteAll = (req, res) => {
 //Login por correo y contraseña
 exports.login = (req, res) => {
     Cliente.findOne({ where: { correo: req.body.correo, contrasenia: req.body.contrasenia } })
-      .then(cliente => {
-        // Validar request
-        if (cliente) {
-          res.status(200).send(cliente);
-          return;
-        } else {
-          res.status(400).send({
-            mensaje: "Correo o contraseña incorrectos"
-          });
-        }
-      })
-      .catch(err => {
-        // res.status(500).send({
-        //   mensaje: "Error al recuperar Usuario por correo"
-        // });
-        res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
-      });
-  }
+        .then(cliente => {
+            // Validar request
+            if (cliente) {
+                if(cliente.rol==="Administrador"){
+                    res.status(200).send(cliente);
+                return;
+                }
+                if(cliente.rol==="Usuario"){
+                    res.status(201).send(cliente);
+                return;
+                }
+                
+            } else {
+                res.status(400).send({
+                    mensaje: "Correo o contraseña incorrectos"
+                });
+            }
+        })
+        .catch(err => {
+            // res.status(500).send({
+            //   mensaje: "Error al recuperar Usuario por correo"
+            // });
+            res.status(500).sendFile(path.join(__dirname, '../source/img', 'error.png'));
+        });
+}
+
+//Encontrar Cliente por correo
+exports.findOne = (req, res) => {
+    const correo = req.params.correo;
+    Cliente.findOne({ where: { correo: req.params.correo } })
+
+    //Cliente.findOne(correo)
+        .then(cliente => {
+            res.status(200).send(cliente);
+        })
+        .catch(err => {
+            res.status(500).send({
+                mensaje: "Error al recuperar Cliente por correo=" + correo
+            });
+        });
+};

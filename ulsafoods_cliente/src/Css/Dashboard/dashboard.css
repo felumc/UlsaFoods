@@ -19,3 +19,18 @@
     border: 1px solid #ddd;
     margin-bottom: 12px;
   }
+  
+  .t{
+    background-color: white;
+  }
+
+  .tb{
+    background-color: rgb(250, 248, 248);
+  }
+
+  #Ped{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+}
+  

@@ -1,12 +1,10 @@
 import React from 'react';
 import Navbar from '../../Componentes/Dashboard/NavbarDashboard';
 import SlideBar from '../../Componentes/Dashboard/SlideBar';
-import CrudProductos from '../../Componentes/Dashboard/CrudProductos';
+import CrudClientes from '../../Componentes/Dashboard/CrudClientes';
 import '../../Css/Dashboard/dashboard.css'
 
-
-const Productos = () => {
-    
+const Clientes = () => {
     return (
         <div>
             <Navbar />
@@ -14,11 +12,10 @@ const Productos = () => {
                 <SlideBar />
             </div>
             <div className='content'>
-                <CrudProductos />
+                <CrudClientes />
             </div>
-            
         </div>
     );
 };
 
-export default Productos;
+export default Clientes;

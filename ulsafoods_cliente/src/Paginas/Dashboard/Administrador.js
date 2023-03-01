@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from '../../Componentes/Dashboard/NavbarDashboard';
 import SlideBar from '../../Componentes/Dashboard/SlideBar';
-import InsertarEmpleado from '../../Componentes/Dashboard/InsertarEmpleado';
+import CrudAdministrador from '../../Componentes/Dashboard/CrudAdministrador';
 import '../../Css/Dashboard/dashboard.css'
 
-const Empleados = () => {
+const Administrador = () => {
     return (
         <div>
             <Navbar />
@@ -12,10 +12,10 @@ const Empleados = () => {
                 <SlideBar />
             </div>
             <div className='content'>
-                <InsertarEmpleado />
+                <CrudAdministrador />
             </div>
         </div>
     );
 };
 
-export default Empleados;
+export default Administrador;

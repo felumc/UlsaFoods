@@ -23,18 +23,28 @@ db.sequelize = sequelize;
 
 db.producto = require("./producto.model.js")(sequelize, Sequelize);
 db.cliente = require("./cliente.model.js")(sequelize, Sequelize);
-db.empleado = require("./empleado.model.js")(sequelize, Sequelize);
+db.venta = require("./venta.model.js")(sequelize, Sequelize);
+db.det_venta = require("./det_venta.model.js")(sequelize, Sequelize);
 
-/*db.usuario = require("./usuario.model.js")(sequelize, Sequelize);*/
-
-//establecer las relaciones
-//-----------tabla usuario
-/*db.rol.hasMany(db.usuario, {
-    foreignKey: "rol_id",
+// Relaciones
+db.cliente.hasMany(db.venta, {
+    foreignKey: "id_cliente",
+});
+db.venta.belongsTo(db.cliente, {
+    foreignKey: "id_cliente",
 });
 
-db.usuario.belongsTo(db.rol, {
-    foreignKey: "rol_id",
-});*/
+db.venta.hasMany(db.det_venta, {
+    foreignKey: "id_venta",
+});
+db.det_venta.belongsTo(db.venta, {
+    foreignKey: "id_venta",
+});
+db.producto.hasMany(db.det_venta, {
+    foreignKey: "id_producto",
+});
+db.det_venta.belongsTo(db.producto, {
+    foreignKey: "id_producto",
+});
 
 module.exports = db;

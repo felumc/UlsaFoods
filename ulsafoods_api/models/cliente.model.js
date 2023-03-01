@@ -21,6 +21,9 @@ module.exports = (sequelize, Sequelize) => {
         contrasenia: {
             type: Sequelize.STRING
         },
+        rol: {
+            type: Sequelize.STRING
+        },
     });
 
     return Cliente;

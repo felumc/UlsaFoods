@@ -6,15 +6,21 @@ module.exports = (sequelize, Sequelize) => {
         stock: {
             type: Sequelize.STRING
         },
-        precio: {
+        price: {
             type: Sequelize.FLOAT
         },
         cafeteria: {
             type: Sequelize.STRING
         },
+        categoria: {
+            type: Sequelize.STRING
+        },
         url_imagen: {
             type: Sequelize.STRING
-        }
+        },
+        estado: {
+            type: Sequelize.STRING
+        },
     });
 
     return producto;
